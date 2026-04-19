@@ -1,44 +1,62 @@
 const tabs = [
-  { id: 'plan', label: 'Full Plan', icon: '🗓️' },
-  { id: 'food', label: 'Food Guide', icon: '🍜' },
-  { id: 'halal', label: 'Halal Guide', icon: '☪️' },
-  { id: 'grab', label: 'Grab + 7-Eleven', icon: '📍' },
-  { id: 'tips', label: 'Tips', icon: '💡' },
+  { label: 'Route Map', icon: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5">
+      <path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3V6z"/>
+      <path d="M9 3v15M15 6v15"/>
+    </svg>
+  )},
+  { label: 'Full Plan', icon: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5">
+      <rect x="3" y="4" width="18" height="18" rx="2"/>
+      <path d="M16 2v4M8 2v4M3 10h18"/>
+      <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/>
+    </svg>
+  )},
+  { label: 'Food', icon: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5">
+      <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+      <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+      <line x1="6" y1="1" x2="6" y2="4"/>
+      <line x1="10" y1="1" x2="10" y2="4"/>
+      <line x1="14" y1="1" x2="14" y2="4"/>
+    </svg>
+  )},
+  { label: 'Grab + 7', icon: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5">
+      <rect x="1" y="3" width="15" height="13" rx="1"/>
+      <path d="M16 8h5l2 5v4h-7V8z"/>
+      <circle cx="5.5" cy="18.5" r="2.5"/>
+      <circle cx="18.5" cy="18.5" r="2.5"/>
+    </svg>
+  )},
+  { label: 'Tips', icon: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5">
+      <circle cx="12" cy="12" r="10"/>
+      <line x1="12" y1="8" x2="12" y2="12"/>
+      <line x1="12" y1="16" x2="12.01" y2="16"/>
+    </svg>
+  )},
 ];
 
-export default function Nav({ activeTab, setActiveTab, darkMode, setDarkMode }) {
+export default function Nav({ active, onChange }) {
   return (
-    <header className="sticky top-0 z-50 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 shadow-sm">
-      <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
-        <div className="font-serif text-forest-dark dark:text-forest-mid text-lg font-bold leading-tight hidden sm:block">
-          Thailand 2026
-        </div>
-        <nav className="flex gap-1 overflow-x-auto scrollbar-hide flex-1 sm:flex-none justify-center sm:justify-end">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`
-                flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-all
-                ${activeTab === tab.id
-                  ? 'bg-forest-dark text-white shadow-md'
-                  : 'text-neutral-muted dark:text-gray-400 hover:bg-forest-light dark:hover:bg-gray-800 hover:text-forest-dark dark:hover:text-forest-mid'
-                }
-              `}
-            >
-              <span className="text-base leading-none">{tab.icon}</span>
-              <span className="hidden sm:inline">{tab.label}</span>
-            </button>
-          ))}
-        </nav>
-        <button
-          onClick={() => setDarkMode(!darkMode)}
-          className="ml-2 p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-sm"
-          aria-label="Toggle dark mode"
-        >
-          {darkMode ? '☀️' : '🌙'}
-        </button>
+    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+      <div className="flex">
+        {tabs.map((t, i) => (
+          <button
+            key={i}
+            onClick={() => onChange(i)}
+            className={`flex-1 flex flex-col items-center gap-0.5 py-2 px-1 text-[10px] font-medium transition-colors
+              ${active === i
+                ? 'text-forest-dark dark:text-forest-mid'
+                : 'text-gray-400 dark:text-gray-500'
+              }`}
+          >
+            {t.icon}
+            <span>{t.label}</span>
+          </button>
+        ))}
       </div>
-    </header>
+    </nav>
   );
 }
