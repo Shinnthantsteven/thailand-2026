@@ -1,0 +1,326 @@
+export const regions = [
+  {
+    id: 'chiangmai-old',
+    name: 'Chiang Mai Old City',
+    dateRange: 'June 2 – 5',
+    dates: 'Jun 2 arrive → Jun 5 noon check-out',
+    nights: 3,
+    hotel: { name: 'Old City area guesthouse', price: '฿450–500/night', urgency: 'Book tonight from Dubai', urgencyLevel: 'high' },
+    transport: ['Grab ✓', 'Walkable ✓'],
+    heroKeyword: 'chiang+mai+temple+thailand',
+    gradientFallback: 'linear-gradient(135deg, #3B6D11, #97C459)',
+    days: [
+      {
+        date: 'June 2',
+        dayName: 'Tuesday',
+        label: 'Arrival day',
+        activities: [
+          { time: 'Land', name: 'Airport → Old City hotel (Grab)', note: 'Open Grab in arrivals — not airport taxi counters', cost: '฿150', tag: 'transport', photoKeyword: null },
+          { time: 'All day', name: 'Rest only', note: 'Coming from Dubai — shower, eat, sleep. Do nothing else.', cost: 'Free', tag: 'free', photoKeyword: null },
+        ],
+      },
+      {
+        date: 'June 3',
+        dayName: 'Wednesday',
+        label: null,
+        activities: [
+          { time: '7:00am', name: 'Super Money Exchange', note: 'Best baht rates in Old City. Do before spending anything.', cost: 'Free', tag: 'free', photoKeyword: null },
+          { time: '8:00am', name: "Monk's Trail → Wat Pha Lat", note: 'Grab to CMU gate ฿70. 30-min jungle walk uphill. Very peaceful this early.', cost: 'Free', tag: 'free', photoKeyword: 'monks+trail+wat+pha+lat+chiang+mai' },
+          { time: '10:30am', name: 'Khao Soi Lung Prakit lunch', note: "Arrive before noon — they sell out. Order 'Khao Soi Gai' (chicken version).", cost: '฿80', tag: 'food', photoKeyword: 'khao+soi+noodle+soup+thailand' },
+          { time: 'Afternoon', name: 'Old City moat walk + Wat Chedi Luang + Wat Phra Singh', note: 'All walkable inside the moat square.', cost: 'Free', tag: 'free', photoKeyword: null },
+          { time: 'Evening', name: 'Mae Kha Canal night walk + street food', note: "Lights on, canal-side stalls. Say 'mai sai moo' (no pork) at each stall.", cost: '฿100', tag: 'food', photoKeyword: 'mae+kha+canal+chiang+mai+night' },
+        ],
+      },
+      {
+        date: 'June 4',
+        dayName: 'Thursday',
+        label: null,
+        activities: [
+          { time: 'Morning', name: 'Halal breakfast near Chiang Mai Gate', note: 'Muslim quarter south of moat — several dedicated halal places open early.', cost: '฿60', tag: 'food', photoKeyword: null },
+          { time: 'Afternoon', name: 'Huen Phen restaurant lunch', note: 'Northern Thai classics. Order Gaeng Hang Lay beef version.', cost: '฿200', tag: 'food', photoKeyword: 'northern+thai+food+restaurant' },
+          { time: '4:00pm', name: 'Wat Umong underground tunnels', note: 'Grab ฿80–100. Broken Buddha field + forest pond. Best at golden hour.', cost: '฿20', tag: 'paid', photoKeyword: 'wat+umong+tunnel+chiang+mai' },
+          { time: '6:00pm', name: 'Baan Kang Wat art village', note: '10-min walk from Wat Umong. Art studios + garden cafes at dusk.', cost: 'Free', tag: 'free', photoKeyword: 'baan+kang+wat+art+village+chiang+mai' },
+          { time: 'Evening', name: 'PLUTO Café Nimman', note: 'Grab ฿60. Space/cosmos interior. Order coffee or mocktail.', cost: '฿200–400', tag: 'food', photoKeyword: 'pluto+cafe+chiang+mai+cosmos' },
+        ],
+      },
+      {
+        date: 'June 5',
+        dayName: 'Friday',
+        label: 'Travel day',
+        activities: [
+          { time: 'Morning', name: 'Buy motion sickness tablets at 7-Eleven', note: 'Take 1 with breakfast. 762 curves on the Pai road. Essential.', cost: '฿40', tag: 'warning', photoKeyword: null },
+          { time: '12:00pm', name: 'Check out · Store main bag at hotel', note: 'Ask to store until June 17 — standard practice, always free.', cost: 'Free', tag: 'admin', photoKeyword: null },
+          { time: '12:30pm', name: 'Grab → Arcade Bus Terminal → Minivan to Pai', note: 'Front seat. Light meal. Window cracked. 762 curves.', cost: '฿200', tag: 'transport', photoKeyword: null },
+          { time: '5:30pm', name: 'Arrive Pai · Check in guesthouse', note: 'Motion sickness may linger — rest immediately.', cost: '', tag: 'admin', photoKeyword: null },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'pai',
+    name: 'Pai',
+    dateRange: 'June 5 – 8',
+    dates: 'Jun 5 arrive (5:30pm) → Jun 8 noon check-out',
+    nights: 3,
+    hotel: { name: 'Pai Country Huts or similar', price: '฿400–500/night', urgency: 'Book this week', urgencyLevel: 'medium' },
+    transport: ['No Grab ✗', 'Bicycle ฿60–80/day', 'Tuk-tuk ฿150–200/trip', 'Group tour ฿400–500'],
+    heroKeyword: 'pai+thailand+valley+green',
+    gradientFallback: 'linear-gradient(135deg, #0F6E56, #5DCAA5)',
+    days: [
+      {
+        date: 'June 5',
+        dayName: 'Friday',
+        label: 'Arrive evening',
+        activities: [
+          { time: '5:30pm', name: 'Check in · Rest 30 min', note: 'Motion sickness may linger.', cost: '', tag: 'admin', photoKeyword: null },
+          { time: '6:30pm', name: 'Pai Walking Street', note: 'Roti banana ฿50 · pad thai chicken ฿60 · mango sticky rice ฿60. Live music every night.', cost: '฿170', tag: 'food', photoKeyword: 'pai+walking+street+night+market' },
+          { time: 'Tonight', name: 'Arrange tuk-tuk for June 6 at 5pm: Bamboo Bridge', note: 'Ask guesthouse host. ฿150–200 round trip.', cost: 'Admin', tag: 'admin', photoKeyword: null },
+        ],
+      },
+      {
+        date: 'June 6',
+        dayName: 'Saturday',
+        label: null,
+        activities: [
+          { time: '8:00am', name: 'Rent bicycle from guesthouse', note: "Explore Pai town. Flat + easy cycling. Coffee at Charlie's House ฿70.", cost: '฿70', tag: 'transport', photoKeyword: null },
+          { time: '5:00pm', name: 'Bamboo Bridge (Boon Ko Ku So)', note: 'Tuk-tuk ฿150–200. June rice paddies = electric green. Tell driver to wait 30 min.', cost: '฿30 entry', tag: 'paid', photoKeyword: 'bamboo+bridge+pai+rice+fields' },
+          { time: 'Tonight', name: 'Book Hot Springs half-day tour for tomorrow', note: 'At any Walking Street agent. ฿400–500 including transport.', cost: 'Admin', tag: 'admin', photoKeyword: null },
+        ],
+      },
+      {
+        date: 'June 7',
+        dayName: 'Sunday',
+        label: null,
+        activities: [
+          { time: '8:00am', name: 'Sai Ngam Hot Springs', note: 'Tour van picks up from guesthouse. Crystal mineral pools in forest. Arrive early before crowds.', cost: '฿220 entry + ฿400 tour', tag: 'paid', photoKeyword: 'hot+springs+mineral+pools+thailand' },
+          { time: 'Noon', name: "Rest + lunch at Charlie's House", note: 'Rest at guesthouse.', cost: '฿120', tag: 'food', photoKeyword: null },
+          { time: '5:30pm', name: 'Pai Canyon sunset', note: 'Tuk-tuk one way ฿100–150. Narrow clay ridges. Most dramatic view in Pai. Arrive 5:30pm sharp.', cost: 'Free', tag: 'free', photoKeyword: 'pai+canyon+sunset+thailand' },
+          { time: 'Tonight', name: 'Book tuk-tuk 5:15am for Yun Lai viewpoint', note: 'Agree ฿150–200 round trip. 5:15am strict departure.', cost: 'Admin', tag: 'admin', photoKeyword: null },
+        ],
+      },
+      {
+        date: 'June 8',
+        dayName: 'Monday',
+        label: 'Travel day',
+        activities: [
+          { time: '5:15am', name: 'Yun Lai Viewpoint sunrise', note: 'Tuk-tuk departs 5:15am. Arrive 5:45am. Mist over valley. Tea included.', cost: '฿20', tag: 'paid', photoKeyword: 'yun+lai+viewpoint+pai+sunrise+fog' },
+          { time: '7:00am', name: 'Return · Pack · Check out · Return bicycle', note: 'Settle all costs with guesthouse.', cost: '', tag: 'admin', photoKeyword: null },
+          { time: '12:30pm', name: 'Private driver to Ban Rak Thai', note: 'Arranged through guesthouse evening before. 2–3 hrs. Arrive ~4pm.', cost: '฿400–600', tag: 'transport', photoKeyword: null },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'ban-rak-thai',
+    name: 'Ban Rak Thai',
+    dateRange: 'June 8 – 12',
+    dates: 'Jun 8 arrive (4pm) → Jun 12 noon check-out',
+    nights: 4,
+    hotel: { name: 'Lungwang Guest House', price: '฿350–450/night', urgency: 'Book RIGHT NOW — fills fastest', urgencyLevel: 'critical' },
+    transport: ['100% walking', 'Tiny Yunnan village'],
+    heroKeyword: 'mountain+lake+mist+morning+thailand',
+    gradientFallback: 'linear-gradient(135deg, #085041, #1D9E75)',
+    callout: { type: 'critical', text: 'Book RIGHT NOW — fills faster than anywhere else on this trip. Message guesthouse "arriving 4pm June 8" when booking.' },
+    days: [
+      {
+        date: 'June 8',
+        dayName: 'Monday',
+        label: 'Arrive',
+        activities: [
+          { time: '4:00pm', name: 'Check in Lungwang Guest House', note: 'Message guesthouse in advance with arrival time.', cost: '', tag: 'admin', photoKeyword: null },
+          { time: 'Evening', name: 'Lake shore walk at dusk', note: 'If you have energy after travel. The first taste of the magic here.', cost: 'Free', tag: 'free', photoKeyword: 'ban+rak+thai+lake+mist+dawn' },
+        ],
+      },
+      {
+        date: 'June 9–11',
+        dayName: 'Tue–Thu',
+        label: 'Daily rhythm (repeat 3 days)',
+        activities: [
+          { time: '6:00am', name: 'Lake shore walk — mist at dawn', note: 'THE highlight of Ban Rak Thai. Don\'t skip a single morning. Mist rolls over the water.', cost: 'Free', tag: 'free', photoKeyword: 'ban+rak+thai+lake+mist+dawn' },
+          { time: 'Morning', name: 'Tea house (different each day)', note: 'Day 1: oolong · Day 2: pu-erh · Day 3: green tea. Ask Lungwang host which to try.', cost: '฿100–150', tag: 'food', photoKeyword: 'chinese+tea+house+oolong+yunnan' },
+          { time: 'Afternoon', name: 'Chinese alley walks + Yunnan food', note: "Yunnan noodles ฿70 · mushroom stir fry ฿80. Say 'mai sai moo' every time.", cost: '฿150', tag: 'food', photoKeyword: 'ban+rak+thai+yunnan+village+alley' },
+          { time: 'One evening', name: 'Boat trip on reservoir', note: 'Book through Lungwang guesthouse. Try to share with other guests to split cost.', cost: '฿400/boat', tag: 'paid', photoKeyword: 'reservoir+boat+mountain+thailand' },
+        ],
+      },
+      {
+        date: 'June 12',
+        dayName: 'Friday',
+        label: 'Travel day',
+        activities: [
+          { time: '6:00am', name: 'Final lake sunrise walk', note: 'Last morning here.', cost: 'Free', tag: 'free', photoKeyword: 'ban+rak+thai+lake+mist+dawn' },
+          { time: '12:00pm', name: 'Check out Lungwang', note: 'Settle bill in cash.', cost: '', tag: 'admin', photoKeyword: null },
+          { time: '12:30pm', name: 'Private driver south to Chom Thong', note: "5–7 hrs. Mountain roads. Bring water + snacks. Message Chom Thong guesthouse 'arriving 7pm June 12'.", cost: '฿500–700', tag: 'transport', photoKeyword: null },
+          { time: '7:00pm', name: 'Arrive Chom Thong · Check in · Eat · Sleep early', note: 'Big park day tomorrow — sleep early.', cost: '', tag: 'admin', photoKeyword: null },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'doi-inthanon',
+    name: 'Doi Inthanon',
+    dateRange: 'June 12 – 17',
+    dates: 'Jun 12 arrive (7pm) → Jun 17 noon check-out',
+    nights: 5,
+    hotel: { name: 'Chom Thong town guesthouse', price: '฿400–500/night', urgency: 'Book tonight + message re late arrival', urgencyLevel: 'high' },
+    transport: ['Hire park driver daily', 'Chom Thong market', '฿900–1,200 full day'],
+    heroKeyword: 'doi+inthanon+waterfall+jungle',
+    gradientFallback: 'linear-gradient(135deg, #27500A, #639922)',
+    callout: { type: 'warning', text: 'Do NOT book Suan Sook resort (฿800–1,200 = over budget). Stay in Chom Thong town, hire driver to park daily.' },
+    days: [
+      {
+        date: 'June 13',
+        dayName: 'Saturday',
+        label: null,
+        activities: [
+          { time: 'Morning', name: 'Rest · Recover from travel', note: 'Long mountain drive yesterday — earned rest.', cost: 'Free', tag: 'free', photoKeyword: null },
+          { time: '3:00pm', name: 'Wachirathan Waterfall', note: 'Tuk-tuk ฿200–300 round trip. You WILL get completely soaked. Wear it proudly.', cost: '฿300 park entry', tag: 'paid', photoKeyword: 'wachirathan+waterfall+doi+inthanon' },
+          { time: 'Tonight', name: 'Arrange full-day park driver for June 14', note: 'Mae Ya → Ang Ka summit → Mae Klang Luang. Negotiate ฿900–1,200 flat rate.', cost: 'Admin', tag: 'admin', photoKeyword: null },
+        ],
+      },
+      {
+        date: 'June 14',
+        dayName: 'Sunday',
+        label: '⭐ BEST DAY OF THE ENTIRE TRIP',
+        activities: [
+          { time: '6:30am', name: 'Driver picks up at guesthouse', note: 'Bring light jacket (15°C at summit) + snacks + 2 bottles of water.', cost: '฿900–1,200 all day', tag: 'transport', photoKeyword: null },
+          { time: '7:00am', name: 'Mae Ya Waterfall', note: '30-min jungle trail. 30-tiered cascade. Biggest, most beautiful waterfall of the trip. Keep ticket all day.', cost: '฿300 (covers all day)', tag: 'paid', photoKeyword: 'mae+ya+waterfall+chiang+mai' },
+          { time: '10:30am', name: 'Ang Ka Nature Trail — summit cloud forest', note: 'Boardwalk through mossy cloud forest at ~15°C. Coldest you\'ll be on this trip. Magical.', cost: 'Included in ticket', tag: 'free', photoKeyword: 'ang+ka+nature+trail+cloud+forest+doi+inthanon' },
+          { time: '1:00pm', name: 'Mae Klang Luang village', note: 'Best mountain coffee of the entire trip. Rice field walk. Lunch here. Driver waits.', cost: 'Free', tag: 'free', photoKeyword: 'mountain+coffee+village+thailand' },
+        ],
+      },
+      {
+        date: 'June 15',
+        dayName: 'Monday',
+        label: null,
+        activities: [
+          { time: '7:30am', name: 'Ban Pa Pong Piang rice terraces', note: 'Half-day driver ฿400–600. June green is electric — best possible time of year.', cost: 'Free entry', tag: 'free', photoKeyword: 'ban+pa+pong+piang+rice+terraces+green' },
+          { time: 'Noon', name: 'Full rest afternoon', note: 'Deliberately built in. Massage in Chom Thong ฿200–300 if wanted.', cost: '฿200–300 optional', tag: 'free', photoKeyword: null },
+        ],
+      },
+      {
+        date: 'June 16',
+        dayName: 'Tuesday',
+        label: null,
+        activities: [
+          { time: '8:00am', name: 'Bamboo Rafting Maewang', note: 'Higher water in June = better rafting. Book through guesthouse. Half day, no experience needed.', cost: '฿500–800', tag: 'paid', photoKeyword: 'bamboo+rafting+river+thailand' },
+        ],
+      },
+      {
+        date: 'June 17',
+        dayName: 'Wednesday',
+        label: 'Travel day',
+        activities: [
+          { time: '12:00pm', name: 'Check out Chom Thong guesthouse', note: '', cost: '', tag: 'admin', photoKeyword: null },
+          { time: '12:30pm', name: 'Songthaew/minibus to Chiang Mai Nimman', note: '~1.5 hrs. Runs frequently. Very easy route.', cost: '฿300–500', tag: 'transport', photoKeyword: null },
+          { time: '2:00pm', name: 'Check in Nimman guesthouse', note: '', cost: '', tag: 'admin', photoKeyword: null },
+          { time: '2:30pm', name: 'Grab to Old City — collect stored main bag', note: 'Pick up bag left at Old City hotel on June 5.', cost: '฿80 round trip', tag: 'transport', photoKeyword: null },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'nimman',
+    name: 'Nimman, Chiang Mai',
+    dateRange: 'June 17 – 27',
+    dates: 'Jun 17 arrive (2pm) → Jun 26 noon check-out',
+    nights: 9,
+    hotel: { name: 'Nimman area guesthouse', price: '฿450–500/night', urgency: 'Book within 2 weeks', urgencyLevel: 'low' },
+    transport: ['Grab ✓', 'Group day tours from Nimman Soi 1'],
+    heroKeyword: 'chiang+mai+cafe+street+nimman',
+    gradientFallback: 'linear-gradient(135deg, #185FA5, #85B7EB)',
+    days: [
+      {
+        date: 'June 17',
+        dayName: 'Wednesday',
+        label: 'Arrive',
+        activities: [
+          { time: 'Afternoon', name: 'Settle in · Laundry · Find tour agent', note: 'Find tour agent on Nimman Soi 1 for upcoming day trips.', cost: '', tag: 'admin', photoKeyword: null },
+        ],
+      },
+      {
+        date: 'June 18',
+        dayName: 'Thursday',
+        label: 'Full rest day',
+        activities: [
+          { time: 'All day', name: 'Thai massage + slow coffee + nothing', note: 'Fully earned after mountains. Don\'t plan anything. ฿200–300.', cost: '฿200–300', tag: 'free', photoKeyword: null },
+          { time: 'Evening', name: 'Book Sticky Waterfall + Mon Jam tour for tomorrow', note: 'At Nimman Soi 1 tour agent.', cost: 'Admin', tag: 'admin', photoKeyword: null },
+        ],
+      },
+      {
+        date: 'June 19',
+        dayName: 'Friday',
+        label: 'Sticky Waterfall day',
+        activities: [
+          { time: '7:30am', name: 'Group tour van pickup from guesthouse', note: '~60km north.', cost: '฿400–600', tag: 'transport', photoKeyword: null },
+          { time: '9:00am', name: 'Sticky Waterfall (Bua Thong)', note: 'Walk UP the limestone waterfall — the surface grips your feet. Otherworldly experience.', cost: 'Free entry', tag: 'free', photoKeyword: 'bua+thong+sticky+waterfall+chiang+mai' },
+          { time: '12:00pm', name: 'Mon Jam hilltop gardens + lunch', note: 'Flower gardens, mountain views. Back in Nimman ~3–4pm.', cost: '฿100', tag: 'food', photoKeyword: 'mon+jam+hilltop+garden+chiang+mai' },
+        ],
+      },
+      {
+        date: 'June 20',
+        dayName: 'Saturday',
+        label: 'Jing Jai + lake day',
+        callout: { type: 'amber', text: 'Your ONLY Saturday in Chiang Mai. Jing Jai Market is Saturday-only. Do not miss it.' },
+        activities: [
+          { time: '8:00am', name: 'Jing Jai Market (Saturday only!)', note: 'Grab ฿70. Local food, coffee, crafts. Don\'t miss this.', cost: 'Free', tag: 'free', photoKeyword: 'jing+jai+market+chiang+mai' },
+          { time: '10:30am', name: 'Huay Tung Tao lake — bamboo hut', note: 'Grab ฿100–150. Pick a bamboo hut by the water. Order food. Sit all day. Do not move.', cost: '฿200–400', tag: 'paid', photoKeyword: 'huay+tung+tao+lake+bamboo+hut' },
+        ],
+      },
+      {
+        date: 'June 21',
+        dayName: 'Sunday',
+        label: 'Mae Kampong + Walking Street',
+        callout: { type: 'amber', text: 'Your ONLY Sunday in Nimman. Sunday Walking Street tonight on Wualai Road.' },
+        activities: [
+          { time: '7:30am', name: 'Group tour to Mae Kampong', note: 'Book at Nimman Soi 1 the evening before. Pickup from guesthouse.', cost: '฿400–600', tag: 'transport', photoKeyword: null },
+          { time: '9:30am', name: 'Per-La-Mer Café', note: 'Mountain terrace. Best coffee stop of the Nimman stretch.', cost: '฿200–350', tag: 'food', photoKeyword: 'mountain+terrace+cafe+chiang+mai' },
+          { time: '11:00am', name: 'Mae Kampong Village + Waterfall', note: 'Wander alleys, tea houses. Waterfall short walk inside village. Back ~3pm.', cost: '฿50 entry', tag: 'paid', photoKeyword: 'mae+kampong+village+chiang+mai' },
+          { time: 'Evening', name: 'Sunday Walking Street — Wualai Road', note: 'Handicrafts, silver, street food.', cost: 'Free', tag: 'free', photoKeyword: 'chiang+mai+sunday+walking+street' },
+        ],
+      },
+      {
+        date: 'June 22–23',
+        dayName: 'Mon–Tue',
+        label: 'Free days',
+        activities: [
+          { time: 'Any time', name: 'Thai massages + Night Bazaar + Cafes', note: 'Thai massages ฿200 · Night Bazaar (every evening) · Favourite cafes · Thai cooking class option ฿600–900.', cost: '฿200–900', tag: 'free', photoKeyword: 'chiang+mai+night+bazaar' },
+        ],
+      },
+      {
+        date: 'June 24',
+        dayName: 'Wednesday',
+        label: null,
+        activities: [
+          { time: 'Morning', name: 'Kadmanee Market + final Khao Soi Gai lunch', note: 'Begin packing after lunch.', cost: '฿80', tag: 'food', photoKeyword: 'khao+soi+noodle+soup+thailand' },
+        ],
+      },
+      {
+        date: 'June 25',
+        dayName: 'Thursday',
+        label: null,
+        activities: [
+          { time: 'All day', name: 'Full pack · Early sleep', note: 'Pre-book Grab to Old City area for noon tomorrow.', cost: '', tag: 'admin', photoKeyword: null },
+        ],
+      },
+      {
+        date: 'June 26',
+        dayName: 'Friday',
+        label: 'Check out',
+        activities: [
+          { time: '12:00pm', name: 'Check out Nimman guesthouse', note: '', cost: '', tag: 'admin', photoKeyword: null },
+          { time: '12:30pm', name: 'Grab to Old City/airport area guesthouse', note: 'Last night. Afternoon free — last coffee, last walk, last gifts.', cost: '฿80', tag: 'transport', photoKeyword: null },
+          { time: 'Tonight', name: 'Pre-schedule Grab to airport for June 27 morning', note: 'Do this the night before — do not leave to morning.', cost: 'Admin', tag: 'admin', photoKeyword: null },
+        ],
+      },
+      {
+        date: 'June 27',
+        dayName: 'Saturday',
+        label: 'Fly home',
+        activities: [
+          { time: 'Morning', name: 'Pre-scheduled Grab to Chiang Mai Airport', note: '15 min. 1.5 hrs before departure is enough for domestic.', cost: '฿150', tag: 'transport', photoKeyword: null },
+          { time: 'Flight', name: 'Bangkok → End of trip', note: 'What a trip.', cost: '', tag: 'admin', photoKeyword: null },
+        ],
+      },
+    ],
+  },
+];
