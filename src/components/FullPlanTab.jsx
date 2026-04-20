@@ -35,27 +35,36 @@ const calloutTextStyle = {
 function ActivityRow({ act }) {
   if (!act.tag && act.note === '—' && act.cost === '—') return null;
   return (
-    <div className="flex gap-2 py-2 border-b border-gray-50 dark:border-gray-800 last:border-0">
-      {/* Time */}
-      <div className="w-16 flex-shrink-0 text-xs text-gray-400 dark:text-gray-500 pt-0.5">{act.time}</div>
-      {/* Content */}
-      <div className="flex-1 min-w-0">
-        <div className="flex items-start gap-2 flex-wrap">
-          <span className="text-sm font-medium text-gray-800 dark:text-gray-100 leading-snug">{act.name}</span>
-          {act.tag && tagStyles[act.tag] && (
-            <span className={`text-[9px] font-semibold uppercase tracking-wide px-1.5 py-0.5 rounded-full flex-shrink-0 ${tagStyles[act.tag]}`}>
-              {act.tag}
-            </span>
+    <div className="py-2 border-b border-gray-50 dark:border-gray-800 last:border-0">
+      {act.photoId && (
+        <div className="mb-2 rounded-lg overflow-hidden h-36 w-full">
+          <UnsplashImg
+            photoId={act.photoId}
+            gradient="linear-gradient(135deg,#3B6D11,#97C459)"
+            alt={act.name}
+            className="w-full h-full object-cover"
+          />
+        </div>
+      )}
+      <div className="flex gap-2">
+        <div className="w-16 flex-shrink-0 text-xs text-gray-400 dark:text-gray-500 pt-0.5">{act.time}</div>
+        <div className="flex-1 min-w-0">
+          <div className="flex items-start gap-2 flex-wrap">
+            <span className="text-sm font-medium text-gray-800 dark:text-gray-100 leading-snug">{act.name}</span>
+            {act.tag && tagStyles[act.tag] && (
+              <span className={`text-[9px] font-semibold uppercase tracking-wide px-1.5 py-0.5 rounded-full flex-shrink-0 ${tagStyles[act.tag]}`}>
+                {act.tag}
+              </span>
+            )}
+          </div>
+          {act.note && act.note !== '—' && (
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 leading-snug">{act.note}</p>
           )}
         </div>
-        {act.note && act.note !== '—' && (
-          <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 leading-snug">{act.note}</p>
+        {act.cost && act.cost !== '—' && (
+          <div className="flex-shrink-0 text-xs font-semibold text-forest-dark dark:text-forest-mid pt-0.5">{act.cost}</div>
         )}
       </div>
-      {/* Cost */}
-      {act.cost && act.cost !== '—' && (
-        <div className="flex-shrink-0 text-xs font-semibold text-forest-dark dark:text-forest-mid pt-0.5">{act.cost}</div>
-      )}
     </div>
   );
 }
@@ -81,11 +90,7 @@ function DaySection({ day }) {
 function RegionAccordion({ region, isOpen, onToggle, refProp }) {
   return (
     <div ref={refProp} className="mb-3 rounded-2xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-800">
-      {/* Header */}
-      <button
-        onClick={onToggle}
-        className="w-full text-left"
-      >
+      <button onClick={onToggle} className="w-full text-left">
         <div className="relative h-28 overflow-hidden" style={{ background: region.gradient }}>
           <UnsplashImg
             photoId={region.photoId}
@@ -110,17 +115,11 @@ function RegionAccordion({ region, isOpen, onToggle, refProp }) {
         </div>
       </button>
 
-      {/* Expanded content */}
       {isOpen && (
         <div className="bg-white dark:bg-gray-900">
-          {/* Info bar */}
           <div className="px-3 py-2 bg-gray-50 dark:bg-gray-800/50 border-b border-gray-100 dark:border-gray-800">
-            <p className="text-xs text-gray-600 dark:text-gray-400">
-              🏨 {region.hotel}
-            </p>
-            <p className="text-xs text-gray-500 dark:text-gray-500 mt-0.5">
-              🚗 {region.transport}
-            </p>
+            <p className="text-xs text-gray-600 dark:text-gray-400">🏨 {region.hotel}</p>
+            <p className="text-xs text-gray-500 dark:text-gray-500 mt-0.5">🚗 {region.transport}</p>
           </div>
           <div className="p-3">
             {region.days.map((day, i) => (
@@ -153,7 +152,6 @@ export default function FullPlanTab({ jumpRegion, onJumpDone }) {
 
   return (
     <div className="pb-4">
-      {/* Important callouts */}
       <div className="px-4 pt-4">
         <h2 className="font-serif text-xl text-gray-800 dark:text-gray-100 mb-3">Important Alerts</h2>
         <div className="space-y-2 mb-4">
@@ -165,7 +163,6 @@ export default function FullPlanTab({ jumpRegion, onJumpDone }) {
           ))}
         </div>
 
-        {/* Check-in rule */}
         <div className="mb-4 p-3 rounded-xl bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800">
           <p className="text-xs text-blue-800 dark:text-blue-300 font-medium">
             📋 Check-out always 12pm · Check-in always 2pm · Travel same afternoon · Never pay two rooms one night
@@ -175,7 +172,6 @@ export default function FullPlanTab({ jumpRegion, onJumpDone }) {
         <h2 className="font-serif text-xl text-gray-800 dark:text-gray-100 mb-3">Day-by-Day Plan</h2>
       </div>
 
-      {/* Region accordions */}
       <div className="px-4">
         {regions.map((r) => (
           <RegionAccordion
@@ -188,7 +184,6 @@ export default function FullPlanTab({ jumpRegion, onJumpDone }) {
         ))}
       </div>
 
-      {/* Last entry */}
       <div className="mx-4 mt-2 p-3 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
         <div className="text-sm font-semibold text-gray-700 dark:text-gray-200">Jun 25 · Airport area · Last night</div>
         <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">฿450–500 · Check in after Nimman checkout · Pre-schedule Grab for Jun 26 morning flight</p>

@@ -1,11 +1,16 @@
 export default function UnsplashImg({ photoId, keyword, gradient, alt, className }) {
-  const src = photoId
-    ? `https://images.unsplash.com/photo-${photoId}?w=800&q=80&auto=format&fit=crop`
-    : `https://source.unsplash.com/featured/800x500/?${keyword}`;
-
+  if (!photoId) {
+    return (
+      <div
+        className={className}
+        style={{ background: gradient || 'linear-gradient(135deg,#3B6D11,#97C459)' }}
+        aria-label={alt}
+      />
+    );
+  }
   return (
     <img
-      src={src}
+      src={`https://images.unsplash.com/photo-${photoId}?w=800&q=80&auto=format&fit=crop`}
       alt={alt || (keyword ? keyword.replace(/\+/g, ' ') : '')}
       className={className}
       onError={(e) => {
