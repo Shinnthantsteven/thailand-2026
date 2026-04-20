@@ -37,7 +37,7 @@ function ActivityRow({ act }) {
   return (
     <div className="py-2 border-b border-gray-50 dark:border-gray-800 last:border-0">
       {act.photoUrl && (
-        <div className="mb-2 rounded-lg overflow-hidden h-36 w-full">
+        <div className="mb-2 rounded-xl overflow-hidden" style={{ height: '160px' }}>
           <UnsplashImg
             photoUrl={act.photoUrl}
             gradient="linear-gradient(135deg,#3B6D11,#97C459)"

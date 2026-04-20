@@ -1,6 +1,5 @@
 const P = {
   TEMPLE:    'https://live.staticflickr.com/3366/3344201566_718cf80480_b.jpg',
-  FOOD:      'https://live.staticflickr.com/3571/3455802448_2df4dd77ff_b.jpg',
   MARKET:    'https://live.staticflickr.com/65535/51952125016_0da0f77229.jpg',
   CITY:      'https://live.staticflickr.com/5304/5551811685_c291b3edec_b.jpg',
   PAI:       'https://live.staticflickr.com/2170/2214163089_a437592291.jpg',
@@ -36,16 +35,16 @@ export const regions = [
         activities: [
           { time: '7:00am', name: 'Super Money Exchange', note: 'Best baht rates in Old City. Do before spending anything.', cost: 'Free', tag: 'warning' },
           { time: '8:00am', name: "Monk's Trail → Wat Pha Lat", note: 'Grab to CMU gate ฿70. 30-min jungle walk. Hidden jungle temple.', cost: 'Free', tag: 'free', photoUrl: P.TEMPLE },
-          { time: '10:30am', name: 'Khao Soi Lung Prakit', note: 'Order "Khao Soi Gai" (chicken). Arrive before noon — sells out.', cost: '฿80', tag: 'food', photoUrl: P.FOOD },
-          { time: 'Afternoon', name: 'Old City moat walk + Wat Chedi Luang + Wat Phra Singh', note: 'All walkable inside the moat square.', cost: 'Free', tag: 'free' },
-          { time: 'Evening', name: 'Mae Kha Canal walk + street food', note: 'Lights on canal. Say "mai sai moo" (no pork) at every stall.', cost: '฿100', tag: 'food', photoUrl: P.MARKET },
+          { time: '10:30am', name: 'Khao Soi Lung Prakit', note: 'Order "Khao Soi Gai" (chicken). Arrive before noon — sells out.', cost: '฿80', tag: 'food' },
+          { time: 'Afternoon', name: 'Old City moat walk + Wat Chedi Luang + Wat Phra Singh', note: 'All walkable inside the moat square.', cost: 'Free', tag: 'free', photoUrl: P.TEMPLE },
+          { time: 'Evening', name: 'Mae Kha Canal walk + street food', note: 'Lights on canal. Say "mai sai moo" (no pork) at every stall.', cost: '฿100', tag: 'food', photoUrl: P.CITY },
         ],
       },
       {
         date: 'June 4 · Thursday',
         activities: [
           { time: 'Morning', name: 'Halal breakfast near Chiang Mai Gate', note: 'Muslim quarter south of moat — dedicated halal places.', cost: '฿60', tag: 'food' },
-          { time: 'Noon', name: 'Huen Phen restaurant lunch', note: 'Northern Thai classics. Ask for beef/chicken versions.', cost: '฿200', tag: 'food', photoUrl: P.FOOD },
+          { time: 'Noon', name: 'Huen Phen restaurant lunch', note: 'Northern Thai classics. Ask for beef/chicken versions.', cost: '฿200', tag: 'food' },
           { time: '4:00pm', name: 'Wat Umong underground tunnels', note: 'Grab ฿80. Broken Buddha field + forest pond. Best at golden hour.', cost: '฿20', tag: 'paid', photoUrl: P.TEMPLE },
           { time: '6:00pm', name: 'Baan Kang Wat art village', note: '10-min walk from Wat Umong. Studios + garden cafes at dusk.', cost: 'Free', tag: 'free', photoUrl: P.CITY },
           { time: 'Evening', name: 'PLUTO Café Nimman', note: 'Grab ฿60. Space/cosmos interior. Order coffee or mocktail.', cost: '฿200–400', tag: 'paid', photoUrl: P.CITY },
@@ -145,7 +144,7 @@ export const regions = [
       {
         date: 'June 13 · Friday · Travel south',
         activities: [
-          { time: '6:00am', name: 'Final lake sunrise walk', note: 'Last morning here.', cost: 'Free', tag: 'free' },
+          { time: '6:00am', name: 'Final lake sunrise walk', note: 'Last morning here.', cost: 'Free', tag: 'free', photoUrl: P.LAKE },
           { time: '12:00pm', name: 'Check out Lungwang', note: '—', cost: '—', tag: '' },
           { time: '12:30pm', name: 'Private driver south to Chom Thong', note: '5–7 hrs. Mountain roads. Message guesthouse "arriving 7pm June 13".', cost: '฿500–700', tag: 'transport' },
           { time: '7:00pm', name: 'Arrive Chom Thong · Eat · Sleep early', note: 'Big park day tomorrow. Rest well.', cost: '—', tag: '' },
@@ -179,7 +178,7 @@ export const regions = [
         activities: [
           { time: '6:30am', name: 'Driver picks up · Bring jacket + snacks + 2L water', note: '~15°C at summit. Non-negotiable jacket.', cost: '฿900–1,200 all day', tag: 'transport' },
           { time: '7:00am', name: 'Mae Ya Waterfall', note: '30-min jungle trail. 30-tiered cascade. Keep ticket all day.', cost: '฿300', tag: 'paid', photoUrl: P.WATERFALL },
-          { time: '10:30am', name: 'Ang Ka Nature Trail — summit cloud forest', note: 'Mossy misty boardwalk at 15°C. Coldest point of trip. Magical.', cost: 'Included in ticket', tag: 'free', photoUrl: P.MOUNTAIN },
+          { time: '10:30am', name: 'Ang Ka Nature Trail — summit cloud forest', note: 'Mossy misty boardwalk at 15°C. Coldest point of trip. Magical.', cost: 'Included', tag: 'free', photoUrl: P.MOUNTAIN },
           { time: '1:00pm', name: 'Mae Klang Luang village — best coffee of trip', note: 'Rice field walk. Lunch here. Driver waits. Take your time.', cost: 'Free', tag: 'free', photoUrl: P.RICE },
         ],
       },
@@ -237,7 +236,7 @@ export const regions = [
         date: 'June 20 · Friday · Sticky Waterfall + Mon Jam',
         activities: [
           { time: '7:30am', name: 'Group tour van pickup', note: '—', cost: '฿400–600', tag: 'transport' },
-          { time: '9:00am', name: 'Sticky Waterfall (Bua Thong) ~60km north', note: 'Walk UP the limestone — surface grips your feet. Otherworldly.', cost: 'Free entry', tag: 'free', photoUrl: P.WATERFALL },
+          { time: '9:00am', name: 'Sticky Waterfall (Bua Thong)', note: 'Walk UP the limestone — surface grips your feet. Otherworldly.', cost: 'Free entry', tag: 'free', photoUrl: P.WATERFALL },
           { time: '12:00pm', name: 'Mon Jam hilltop gardens + lunch', note: 'Flower gardens, mountain views. Back in Nimman ~3–4pm.', cost: '฿100', tag: 'paid', photoUrl: P.MOUNTAIN },
           { time: 'Evening', name: 'Book Mae Kampong tour for June 22', note: 'Nimman Soi 1 tour agent.', cost: 'Admin', tag: 'warning' },
         ],
@@ -271,7 +270,7 @@ export const regions = [
         date: 'June 24 · Tuesday · Markets + final Khao Soi + pack',
         activities: [
           { time: 'Morning', name: 'Kadmanee Market', note: 'Lake view, very local. Last market of the trip.', cost: 'Free', tag: 'free', photoUrl: P.MARKET },
-          { time: 'Noon', name: 'Final Khao Soi Gai at Lung Prakit', note: 'One last time. You will miss it in Dubai.', cost: '฿80', tag: 'food', photoUrl: P.FOOD },
+          { time: 'Noon', name: 'Final Khao Soi Gai at Lung Prakit', note: 'One last time. You will miss it in Dubai.', cost: '฿80', tag: 'food' },
           { time: 'Afternoon', name: 'Pack · Last gifts · Early sleep', note: '—', cost: '—', tag: 'admin' },
         ],
       },
