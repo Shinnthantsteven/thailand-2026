@@ -120,6 +120,7 @@ export default function RouteMapTab({ onRegionClick }) {
             >
               <div className="w-24 h-20 relative flex-shrink-0 overflow-hidden" style={{ background: r.gradient }}>
                 <UnsplashImg
+                  photoId={r.photoId}
                   keyword={r.keyword}
                   gradient={r.gradient}
                   alt={r.name}

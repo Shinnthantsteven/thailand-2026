@@ -9,6 +9,7 @@ export const regions = [
     hotel: 'Old City area guesthouse · ฿450–500/night',
     transport: 'Grab works · Walkable',
     keyword: 'chiang+mai+wat+chedi+luang+temple',
+    photoId: 'QcBHVxK0iRY',
     gradient: 'linear-gradient(135deg,#3B6D11,#97C459)',
     days: [
       {
@@ -58,6 +59,7 @@ export const regions = [
     hotel: 'Pai Country Huts or similar · ฿400–500/night',
     transport: 'NO Grab · Bicycle ฿70/day · Tuk-tuk ฿150–200/trip · Group tour ฿400–500',
     keyword: 'pai+thailand+valley+bamboo+bridge+rice',
+    photoId: 'fDzBfn9rkCY',
     gradient: 'linear-gradient(135deg,#0F6E56,#5DCAA5)',
     days: [
       {
@@ -112,6 +114,7 @@ export const regions = [
     hotel: 'Lungwang Guest House · ฿350–450/night · BOOK RIGHT NOW',
     transport: '100% walking · Tiny Yunnan Chinese village · No transport needed',
     keyword: 'ban+rak+thai+lake+reflection+yunnan',
+    photoId: 'oJ-_Hp6kpFk',
     gradient: 'linear-gradient(135deg,#085041,#1D9E75)',
     days: [
       {
@@ -150,6 +153,7 @@ export const regions = [
     hotel: 'Chom Thong town guesthouse · ฿400–500/night',
     transport: 'Hire park driver at Chom Thong market ฿900–1,200/full day',
     keyword: 'mae+ya+waterfall+doi+inthanon+jungle',
+    photoId: 'hB9MWUzcRZQ',
     gradient: 'linear-gradient(135deg,#27500A,#639922)',
     days: [
       {
@@ -205,6 +209,7 @@ export const regions = [
     hotel: 'Nimman area guesthouse · ฿450–500/night',
     transport: 'Grab works · Group tour vans from Nimman Soi 1',
     keyword: 'nimman+road+chiang+mai+cafe+street+night',
+    photoId: 'k8dwH-poJ2c',
     gradient: 'linear-gradient(135deg,#185FA5,#85B7EB)',
     days: [
       {

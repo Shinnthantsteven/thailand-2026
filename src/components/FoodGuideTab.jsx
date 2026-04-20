@@ -17,6 +17,7 @@ function FoodCard({ dish }) {
     <div className="rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900">
       <div className="relative h-32 overflow-hidden" style={{ background: gradient }}>
         <UnsplashImg
+          photoId={dish.photoId}
           keyword={dish.keyword}
           gradient={gradient}
           alt={dish.name}

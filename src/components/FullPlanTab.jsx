@@ -88,6 +88,7 @@ function RegionAccordion({ region, isOpen, onToggle, refProp }) {
       >
         <div className="relative h-28 overflow-hidden" style={{ background: region.gradient }}>
           <UnsplashImg
+            photoId={region.photoId}
             keyword={region.keyword}
             gradient={region.gradient}
             alt={region.name}
