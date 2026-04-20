@@ -36,10 +36,10 @@ function ActivityRow({ act }) {
   if (!act.tag && act.note === '—' && act.cost === '—') return null;
   return (
     <div className="py-2 border-b border-gray-50 dark:border-gray-800 last:border-0">
-      {act.photoId && (
+      {act.photoUrl && (
         <div className="mb-2 rounded-lg overflow-hidden h-36 w-full">
           <UnsplashImg
-            photoId={act.photoId}
+            photoUrl={act.photoUrl}
             gradient="linear-gradient(135deg,#3B6D11,#97C459)"
             alt={act.name}
             className="w-full h-full object-cover"
@@ -93,8 +93,7 @@ function RegionAccordion({ region, isOpen, onToggle, refProp }) {
       <button onClick={onToggle} className="w-full text-left">
         <div className="relative h-28 overflow-hidden" style={{ background: region.gradient }}>
           <UnsplashImg
-            photoId={region.photoId}
-            keyword={region.keyword}
+            photoUrl={region.photoUrl}
             gradient={region.gradient}
             alt={region.name}
             className="w-full h-full object-cover"
@@ -162,13 +161,11 @@ export default function FullPlanTab({ jumpRegion, onJumpDone }) {
             </div>
           ))}
         </div>
-
         <div className="mb-4 p-3 rounded-xl bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800">
           <p className="text-xs text-blue-800 dark:text-blue-300 font-medium">
             📋 Check-out always 12pm · Check-in always 2pm · Travel same afternoon · Never pay two rooms one night
           </p>
         </div>
-
         <h2 className="font-serif text-xl text-gray-800 dark:text-gray-100 mb-3">Day-by-Day Plan</h2>
       </div>
 

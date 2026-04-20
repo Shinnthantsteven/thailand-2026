@@ -1,5 +1,5 @@
-export default function UnsplashImg({ photoId, keyword, gradient, alt, className }) {
-  if (!photoId) {
+export default function UnsplashImg({ photoUrl, gradient, alt, className }) {
+  if (!photoUrl) {
     return (
       <div
         className={className}
@@ -10,9 +10,10 @@ export default function UnsplashImg({ photoId, keyword, gradient, alt, className
   }
   return (
     <img
-      src={`https://images.unsplash.com/photo-${photoId}?w=800&q=80&auto=format&fit=crop`}
-      alt={alt || (keyword ? keyword.replace(/\+/g, ' ') : '')}
+      src={photoUrl}
+      alt={alt || ''}
       className={className}
+      loading="lazy"
       onError={(e) => {
         e.target.style.display = 'none';
         if (e.target.parentNode) {
