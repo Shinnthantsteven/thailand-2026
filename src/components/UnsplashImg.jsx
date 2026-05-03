@@ -1,13 +1,19 @@
-export default function UnsplashImg({ photoId, keyword, gradient, alt, className }) {
-  const src = photoId
-    ? `https://images.unsplash.com/photo-${photoId}?w=800&q=80&auto=format&fit=crop`
-    : `https://source.unsplash.com/featured/800x500/?${keyword}`;
-
+export default function UnsplashImg({ photoUrl, gradient, alt, className }) {
+  if (!photoUrl) {
+    return (
+      <div
+        className={className}
+        style={{ background: gradient || 'linear-gradient(135deg,#3B6D11,#97C459)' }}
+        aria-label={alt}
+      />
+    );
+  }
   return (
     <img
-      src={src}
-      alt={alt || (keyword ? keyword.replace(/\+/g, ' ') : '')}
+      src={photoUrl}
+      alt={alt || ''}
       className={className}
+      loading="lazy"
       onError={(e) => {
         e.target.style.display = 'none';
         if (e.target.parentNode) {
