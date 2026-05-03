@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { hotels, budget, tonightList, moneyTips, transportTips, transportBreakdown, activitiesBreakdown, weatherTips, halalTips, cultureTips, healthTips, packingList } from '../data/tips';
+import { hotels, budget, tonightList, moneyTips, weatherTips, halalTips, cultureTips, healthTips, packingList } from '../data/tips';
 
 const urgencyStyle = {
   red: 'bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300 border-red-300 dark:border-red-700',
@@ -17,8 +17,13 @@ function TipSection({ title, emoji, items, color = 'gray' }) {
     red: 'border-red-100 dark:border-red-900/30 bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300',
     purple: 'border-purple-100 dark:border-purple-900/30 bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300',
   };
+  const [header, body] = colorMap[color].split(' ').reduce((acc, cls) => {
+    acc[1].push(cls);
+    return acc;
+  }, [[], []]);
+
   return (
-    <div className={`mx-4 mb-3 rounded-xl overflow-hidden border ${colorMap[color].split(' ')[0]}`}>
+    <div className={`mx-4 mb-3 rounded-xl overflow-hidden border ${colorMap[color].split(' ').slice(0, 1).join(' ')}`}>
       <div className={`px-4 py-2.5 ${colorMap[color]}`}>
         <h3 className="font-semibold text-sm">{emoji} {title}</h3>
       </div>
@@ -27,37 +32,6 @@ function TipSection({ title, emoji, items, color = 'gray' }) {
           <div key={i} className="flex gap-2">
             <span className="text-gray-300 dark:text-gray-600 flex-shrink-0 mt-0.5">•</span>
             <p className="text-sm text-gray-600 dark:text-gray-400">{item}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function BreakdownSection({ title, emoji, data, color }) {
-  const colorMap = {
-    purple: { border: 'border-purple-100 dark:border-purple-900/30', header: 'bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300', total: 'text-purple-700 dark:text-purple-300' },
-    blue: { border: 'border-blue-100 dark:border-blue-900/30', header: 'bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300', total: 'text-blue-700 dark:text-blue-300' },
-  };
-  const c = colorMap[color];
-  return (
-    <div className={`mx-4 mb-3 rounded-xl overflow-hidden border ${c.border}`}>
-      <div className={`px-4 py-2.5 ${c.header}`}>
-        <h3 className="font-semibold text-sm">{emoji} {title}</h3>
-      </div>
-      <div className="bg-white dark:bg-gray-900 divide-y divide-gray-50 dark:divide-gray-800">
-        {data.map((section, i) => (
-          <div key={i} className="px-4 py-3">
-            <div className="flex items-center justify-between mb-1.5">
-              <span className="text-xs font-bold text-gray-700 dark:text-gray-200">{section.region}</span>
-              <span className={`text-xs font-bold ${c.total}`}>{section.total}</span>
-            </div>
-            {section.items.map((item, j) => (
-              <div key={j} className="flex gap-2 mt-0.5">
-                <span className="text-gray-300 flex-shrink-0">→</span>
-                <p className="text-xs text-gray-500 dark:text-gray-400">{item}</p>
-              </div>
-            ))}
           </div>
         ))}
       </div>
@@ -84,19 +58,19 @@ export default function TipsTab() {
     <div className="pb-4">
       <div className="px-4 pt-4 pb-3">
         <h2 className="font-serif text-2xl text-gray-800 dark:text-gray-100">Trip Tips</h2>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">Hotels · Budget · Transport · Activities · Culture</p>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">Hotels · Budget · Packing · Culture</p>
       </div>
 
-      {/* Hotels */}
+      {/* Hotel booking — most important */}
       <div className="mx-4 mb-4">
-        <h3 className="font-serif text-lg text-gray-800 dark:text-gray-100 mb-2">🏨 All Hotels</h3>
+        <h3 className="font-serif text-lg text-gray-800 dark:text-gray-100 mb-2">🏨 Book These Hotels</h3>
         <div className="rounded-xl overflow-hidden border border-gray-100 dark:border-gray-800">
           {hotels.map((h, i) => (
             <div key={i} className={`flex gap-3 p-3 bg-white dark:bg-gray-900 ${i < hotels.length - 1 ? 'border-b border-gray-50 dark:border-gray-800' : ''}`}>
               <div className="flex-1 min-w-0">
                 <div className="text-sm font-medium text-gray-800 dark:text-gray-100 leading-tight">{h.name}</div>
                 <div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
-                  {h.checkIn} → {h.checkOut} · {h.nights} nights · <span className="font-semibold text-forest-dark dark:text-forest-mid">{h.budget}</span>
+                  {h.checkIn} → {h.checkOut} · {h.nights}N · {h.budget}
                 </div>
               </div>
               <span className={`flex-shrink-0 text-[10px] font-bold px-2 py-0.5 rounded-full border self-start mt-0.5 ${urgencyStyle[h.urgency]}`}>
@@ -107,45 +81,39 @@ export default function TipsTab() {
         </div>
       </div>
 
-      {/* Budget Summary */}
+      {/* Budget */}
       <div className="mx-4 mb-4">
         <h3 className="font-serif text-lg text-gray-800 dark:text-gray-100 mb-2">💰 Budget Summary</h3>
         <div className="grid grid-cols-2 gap-2">
           {budget.rows.map((r) => (
             <div key={r.label} className="rounded-xl p-3 bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800">
               <div className="text-[10px] uppercase tracking-wide text-gray-400 dark:text-gray-500 mb-1">{r.label}</div>
-              <div className="text-base font-bold text-gray-800 dark:text-gray-100">{r.aed}</div>
-              <div className="text-[11px] text-gray-400 dark:text-gray-500">{r.thb}</div>
+              <div className="text-base font-bold text-gray-800 dark:text-gray-100">{r.thb}</div>
+              <div className="text-[11px] text-gray-400 dark:text-gray-500">{r.aed}</div>
             </div>
           ))}
-          <div className="rounded-xl p-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
-            <div className="text-[10px] uppercase tracking-wide text-gray-500 mb-1">Grand Total</div>
-            <div className="text-base font-bold text-gray-800 dark:text-gray-100">{budget.total.aed}</div>
-            <div className="text-[11px] text-gray-400">{budget.total.thb}</div>
+          <div className="rounded-xl p-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 col-span-1">
+            <div className="text-[10px] uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-1">Total</div>
+            <div className="text-base font-bold text-gray-800 dark:text-gray-100">{budget.total.thb}</div>
+            <div className="text-[11px] text-gray-400">{budget.total.aed}</div>
           </div>
-          <div className="rounded-xl p-3 bg-forest-light dark:bg-forest-dark/30 border border-forest-mid/30">
+          <div className="rounded-xl p-3 bg-forest-light dark:bg-forest-dark/30 border border-forest-mid/30 col-span-1">
             <div className="text-[10px] uppercase tracking-wide text-forest-dark dark:text-forest-mid mb-1">Buffer ✓</div>
-            <div className="text-base font-bold text-forest-dark dark:text-forest-mid">{budget.buffer.aed}</div>
-            <div className="text-[11px] text-forest-dark/70 dark:text-forest-mid/70">{budget.buffer.thb}</div>
+            <div className="text-base font-bold text-forest-dark dark:text-forest-mid">{budget.buffer.thb}</div>
+            <div className="text-[11px] text-forest-dark/70 dark:text-forest-mid/70">{budget.buffer.aed}</div>
           </div>
         </div>
         <div className="mt-2 p-2.5 rounded-lg bg-gray-50 dark:bg-gray-800 text-center">
-          <span className="text-xs text-gray-500 dark:text-gray-400">Your total budget: </span>
-          <span className="text-sm font-bold text-gray-800 dark:text-gray-100">{budget.yourBudget.aed}</span>
+          <span className="text-xs text-gray-500 dark:text-gray-400">Your budget: </span>
+          <span className="text-sm font-bold text-gray-800 dark:text-gray-100">{budget.yourBudget.thb} ({budget.yourBudget.aed})</span>
           <span className="text-xs text-gray-500 dark:text-gray-400"> · 1 AED = ฿10</span>
         </div>
       </div>
 
-      {/* Transport Breakdown */}
-      <BreakdownSection title="Transport by Region" emoji="🚌" data={transportBreakdown} color="blue" />
-
-      {/* Activities Breakdown */}
-      <BreakdownSection title="Activities by Region" emoji="🎯" data={activitiesBreakdown} color="purple" />
-
-      {/* Tonight */}
+      {/* Tonight from Dubai */}
       <div className="mx-4 mb-3 rounded-xl overflow-hidden border border-red-200 dark:border-red-800/50">
         <div className="px-4 py-2.5 bg-red-50 dark:bg-red-900/20">
-          <h3 className="font-semibold text-sm text-red-700 dark:text-red-300">🔴 Do Before You Fly</h3>
+          <h3 className="font-semibold text-sm text-red-700 dark:text-red-300">🔴 Do Tonight from Dubai</h3>
         </div>
         <div className="px-4 py-3 bg-white dark:bg-gray-900 space-y-2">
           {tonightList.map((item, i) => (
@@ -157,7 +125,6 @@ export default function TipsTab() {
         </div>
       </div>
 
-      <TipSection title="Transport Tips" emoji="🚌" items={transportTips} color="blue" />
       <TipSection title="Money" emoji="💵" items={moneyTips} color="amber" />
       <TipSection title="Weather in June" emoji="🌧️" items={weatherTips} color="blue" />
       <TipSection title="Halal Eating" emoji="🕌" items={halalTips} color="green" />
@@ -201,7 +168,7 @@ export default function TipsTab() {
         </div>
         {doneCount === packingList.length && (
           <div className="mt-2 text-center text-sm text-forest-dark dark:text-forest-mid font-semibold">
-            ✅ All packed — you're ready for Thailand!
+            ✅ All packed — you're ready!
           </div>
         )}
       </div>
