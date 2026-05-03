@@ -27,7 +27,7 @@ export default function App() {
       <header className="sticky top-0 z-40 bg-forest-dark text-white px-4 py-2.5 flex items-center justify-between shadow-md">
         <div>
           <h1 className="font-serif text-lg leading-tight">Thailand 2026</h1>
-          <p className="text-[11px] text-forest-light opacity-90">Jun 2–26 · 24 nights · Northern Thailand</p>
+          <p className="text-[11px] text-forest-light opacity-90">Jun 2–27 · 25 nights · 6 regions</p>
         </div>
         <button
           onClick={() => setDark(d => !d)}

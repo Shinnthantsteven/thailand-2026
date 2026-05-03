@@ -14,11 +14,11 @@ const tagStyles = {
 
 const callouts = [
   { emoji: '⭐', title: 'June 15 — Best day of the entire trip', body: 'Mae Ya waterfall → Ang Ka cloud forest → Mae Klang Luang coffee. Pack a jacket. One ticket covers everything.', type: 'star' },
-  { emoji: '⚠️', title: 'June 21 — ONLY Saturday in Chiang Mai', body: 'Jing Jai Market is Saturday only. You get one chance. Do not miss it.', type: 'warning' },
-  { emoji: '⚠️', title: 'June 22 — ONLY Sunday in Nimman', body: 'Sunday Walking Street Wualai Road. One chance only.', type: 'warning' },
-  { emoji: '🔴', title: 'Ban Rak Thai — Book Lungwang RIGHT NOW', body: 'Fills faster than anywhere else on this trip.', type: 'urgent' },
-  { emoji: '⚠️', title: 'Doi Inthanon — Stay in Chom Thong town', body: 'NOT Suan Sook resort (฿800–1,200 = over budget). Chom Thong guesthouse ฿400–500 + hire driver daily = better value.', type: 'warning' },
+  { emoji: '⚠️', title: 'June 21 — ONLY Sunday in Nimman', body: 'Sunday Walking Street Wualai Road. One chance only. Do not miss it.', type: 'warning' },
+  { emoji: '⚠️', title: 'Mon Jaw Doi at Monjam — Free cancel before May 19!', body: 'You must confirm or cancel before May 19, 2026. Payment due May 17. Get visa approved before then!', type: 'urgent' },
   { emoji: '⚠️', title: 'Motion sickness', body: 'Take tablets BEFORE Pai minivan (Jun 5) AND before Ban Rak Thai driver (Jun 9). Not after — too late.', type: 'warning' },
+  { emoji: '🏨', title: 'All 6 hotels confirmed ✅', body: 'Nature Boutique · Sleep Pai B&B · Malee Guesthouse · Nok Chan Mee Na · Mon Jaw Doi · Nimman Expat Home — all booked!', type: 'star' },
+  { emoji: '🗓️', title: 'June 22 — ONLY Saturday in Nimman', body: 'Jing Jai Market is Saturday only. But you arrive Jun 20 — Jun 21 is your Sunday for Walking Street. Jun 22 is free day.', type: 'warning' },
 ];
 
 const calloutStyle = {
@@ -181,12 +181,9 @@ export default function FullPlanTab({ jumpRegion, onJumpDone }) {
         ))}
       </div>
 
-      <div className="mx-4 mt-2 p-3 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
-        <div className="text-sm font-semibold text-gray-700 dark:text-gray-200">Jun 25 · Airport area · Last night</div>
-        <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">฿450–500 · Check in after Nimman checkout · Pre-schedule Grab for Jun 26 morning flight</p>
-        <div className="mt-2 pt-2 border-t border-gray-200 dark:border-gray-700 text-sm font-semibold text-amber-dark dark:text-amber-mid">
-          Jun 26 · Thursday · Fly Chiang Mai → Bangkok · End of trip
-        </div>
+      <div className="mx-4 mt-2 p-3 rounded-xl bg-forest-light dark:bg-forest-dark/30 border border-forest-mid/30">
+        <div className="text-sm font-semibold text-forest-dark dark:text-forest-mid">Jun 27 · Saturday · Fly Chiang Mai → Bangkok</div>
+        <p className="text-xs text-forest-dark/70 dark:text-forest-mid/70 mt-1">Check out Nimman Expat Home · Pre-schedule Grab to airport · End of 25-night trip 🇹🇭</p>
       </div>
     </div>
   );

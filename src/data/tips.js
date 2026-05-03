@@ -1,43 +1,46 @@
 export const hotels = [
-  { name: 'Lungwang Guest House, Ban Rak Thai', checkIn: 'Jun 9 evening', checkOut: 'Jun 13 noon', nights: 4, budget: '฿350–450', urgency: 'red', urgencyLabel: 'RIGHT NOW' },
-  { name: 'Old City guesthouse, Chiang Mai', checkIn: 'Jun 2', checkOut: 'Jun 5 noon', nights: 3, budget: '฿450–500', urgency: 'orange', urgencyLabel: 'Tonight' },
-  { name: 'Chom Thong guesthouse, Doi Inthanon area', checkIn: 'Jun 13 late', checkOut: 'Jun 18 noon', nights: 5, budget: '฿400–500', urgency: 'orange', urgencyLabel: 'Tonight + late arrival note' },
-  { name: 'Pai guesthouse (Pai Country Huts)', checkIn: 'Jun 5 evening', checkOut: 'Jun 9 noon', nights: 4, budget: '฿400–500', urgency: 'orange', urgencyLabel: 'This week' },
-  { name: 'Nimman guesthouse, Chiang Mai', checkIn: 'Jun 18', checkOut: 'Jun 25 noon', nights: 7, budget: '฿450–500', urgency: 'yellow', urgencyLabel: 'Within 2 weeks' },
-  { name: 'Airport area, last night', checkIn: 'Jun 25', checkOut: 'Jun 26 morning', nights: 1, budget: '฿450–500', urgency: 'green', urgencyLabel: 'Anytime' },
+  { name: 'Nature Boutique Hotel, Chiang Mai Old City', checkIn: 'Jun 2', checkOut: 'Jun 5 noon', nights: 3, budget: 'AED 133', urgency: 'green', urgencyLabel: '✅ BOOKED' },
+  { name: 'Sleep Pai Bed & Breakfast, Pai Riverside', checkIn: 'Jun 5', checkOut: 'Jun 9 noon', nights: 4, budget: 'AED 216', urgency: 'green', urgencyLabel: '✅ BOOKED' },
+  { name: 'Malee Guesthouse, Ban Rak Thai', checkIn: 'Jun 9', checkOut: 'Jun 13 noon', nights: 4, budget: 'AED 323', urgency: 'red', urgencyLabel: '⚠️ 92% cancel fee!' },
+  { name: 'Nok Chan Mee Na, Doi Inthanon', checkIn: 'Jun 13', checkOut: 'Jun 18 noon', nights: 5, budget: 'AED 313', urgency: 'green', urgencyLabel: '✅ BOOKED' },
+  { name: 'Mon Jaw Doi at Monjam, Mon Jam', checkIn: 'Jun 18', checkOut: 'Jun 20 noon', nights: 2, budget: 'AED 172', urgency: 'orange', urgencyLabel: '⚠️ Cancel before May 19!' },
+  { name: 'Nimman Expat Home, Nimman', checkIn: 'Jun 20', checkOut: 'Jun 27 noon', nights: 7, budget: 'AED 365', urgency: 'green', urgencyLabel: '✅ BOOKED' },
 ];
 
 export const budget = {
   rows: [
-    { label: 'Accommodation', thb: '฿11,000', aed: '1,100 AED' },
-    { label: 'Food', thb: '฿8,750', aed: '875 AED' },
-    { label: 'Transport', thb: '฿7,500', aed: '750 AED' },
-    { label: 'Activities', thb: '฿3,300', aed: '330 AED' },
+    { label: 'Accommodation', thb: '฿14,299', aed: '1,544 AED' },
+    { label: 'Food', thb: '฿11,000', aed: '1,200 AED' },
+    { label: 'Transport', thb: '฿7,500', aed: '800 AED' },
+    { label: 'Activities', thb: '฿2,750', aed: '300 AED' },
   ],
-  total: { label: 'Total', thb: '฿30,550', aed: '3,055 AED' },
-  yourBudget: { label: 'Your Budget', thb: '฿40,000', aed: '4,000 AED' },
-  buffer: { label: 'Buffer (green)', thb: '฿9,450', aed: '945 AED' },
+  total: { label: 'Total', thb: '฿35,549', aed: '3,844 AED' },
+  yourBudget: { label: 'Your Budget', thb: '฿40,000', aed: '4,544 AED' },
+  buffer: { label: 'Buffer ✓', thb: '฿4,451', aed: '700 AED' },
 };
 
 export const tonightList = [
-  'Book Lungwang Guest House Ban Rak Thai — RIGHT NOW',
-  'Book Old City + Chom Thong guesthouses tonight',
+  'Visa approval pending — confirm before May 19 for Mon Jam cancellation deadline',
   'Download Grab app + create account (easier on UAE wifi)',
   'Download Muslim Pro (offline prayer times + qibla direction)',
-  'Download Google Maps offline — save Chiang Mai + Pai areas',
+  'Download Google Maps offline — save Chiang Mai, Pai, Mae Hong Son areas',
   'Buy AIS or DTAC SIM at Chiang Mai airport arrivals ฿299/30 days unlimited',
+  'Check Tabby June 30 payment — AED 253 due while you are in Thailand',
 ];
 
 export const moneyTips = [
   'Exchange at Super Rich Money Exchange Old City — never airport (5–8% worse)',
-  'Rate: 1 AED = ฿10 · 4,000 AED = ฿40,000',
+  'Rate: 1 AED ≈ ฿10 · Total budget 4,544 AED ≈ ฿45,440',
   'ATM fee: ฿220 per withdrawal — withdraw ฿5,000–10,000 at a time',
   'Cash only: guesthouses, food stalls, tuk-tuks, market vendors',
+  'Tabby June 30 payment AED 253 due while in Thailand — ensure card has balance',
 ];
 
 export const weatherTips = [
   'Chiang Mai + Pai: 28–35°C, afternoon rain showers',
+  'Ban Rak Thai: cooler at altitude, misty mornings — light jacket useful',
   'Doi Inthanon summit: ~15°C — pack 1 light jacket for June 15 only',
+  'Mon Jam: cool hilltop — pleasant sleeping weather, light layer at night',
   'June = peak green season — best time for rice paddies + waterfalls',
   'Umbrella: Buy at 7-Eleven Day 1 ฿79',
 ];
@@ -48,6 +51,7 @@ export const halalTips = [
   'Halal Indian restaurants near Tha Phae Gate + Nimman area',
   'Ban Haw Mosque near Charoenrat Road, Old City Chiang Mai',
   'Muslim Pro app shows qibla + prayer times offline',
+  'Yunnan food in Ban Rak Thai — mostly vegetable-based, ask about pork each time',
 ];
 
 export const cultureTips = [
@@ -63,10 +67,11 @@ export const healthTips = [
   'Motion sickness: Take tablets BEFORE Pai minivan AND before Ban Rak Thai mountain driver — not after',
   'Mosquitoes: DEET spray at dusk near water — Ban Rak Thai lake walks especially',
   'Sunscreen: SPF 50 every morning. Burns fast at this latitude.',
+  'Electrolyte drinks (Sponsor brand) after every waterfall / outdoor activity',
 ];
 
 export const packingList = [
-  { id: 'jacket', label: 'Light jacket (Doi Inthanon summit June 15 — 15°C)' },
+  { id: 'jacket', label: 'Light jacket (Doi Inthanon summit Jun 15 — 15°C · Mon Jam nights)' },
   { id: 'meds', label: 'Motion sickness tablets' },
   { id: 'scarf', label: 'Travel scarf (temple dress code)' },
   { id: 'sandals', label: 'Sandals that slip off easily' },
@@ -77,5 +82,6 @@ export const packingList = [
   { id: 'cash', label: 'Cash AED to exchange on arrival' },
   { id: 'grab', label: 'Grab app downloaded + account created' },
   { id: 'muslimpro', label: 'Muslim Pro downloaded offline' },
-  { id: 'maps', label: 'Google Maps offline saved' },
+  { id: 'maps', label: 'Google Maps offline saved — Chiang Mai, Pai, Mae Hong Son' },
+  { id: 'swimwear', label: 'Swimwear — Sticky Waterfall + Huay Tung Tao lake' },
 ];

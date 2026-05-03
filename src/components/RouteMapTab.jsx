@@ -6,7 +6,8 @@ const stops = [
   { label: 'Pai', dates: 'Jun 5–9', nights: '4N', regionId: 'pai' },
   { label: 'Ban Rak Thai', dates: 'Jun 9–13', nights: '4N', regionId: 'banrakthai' },
   { label: 'Doi Inthanon', dates: 'Jun 13–18', nights: '5N', regionId: 'doiinthanon' },
-  { label: 'Nimman CM', dates: 'Jun 18–25', nights: '7N', regionId: 'nimman' },
+  { label: 'Mon Jam', dates: 'Jun 18–20', nights: '2N', regionId: 'monjam' },
+  { label: 'Nimman CM', dates: 'Jun 20–27', nights: '7N', regionId: 'nimman' },
 ];
 
 const legs = [
@@ -37,33 +38,43 @@ const legs = [
     from: 'Ban Rak Thai',
     to: 'Doi Inthanon',
     date: 'Jun 13',
-    note: 'Book through Lungwang · Long mountain drive south to Chom Thong',
+    note: 'Book through guesthouse · Long mountain drive south to Chom Thong',
     mapsUrl: 'https://www.google.com/maps/dir/?api=1&origin=Ban+Rak+Thai+Mae+Hong+Son+Thailand&destination=Chom+Thong+Chiang+Mai+Thailand&travelmode=driving',
   },
   {
-    mode: 'Songthaew',
-    cost: '฿400',
-    time: '~1.5 hrs',
+    mode: 'Car / driver',
+    cost: '฿300–500',
+    time: '~2.5 hrs',
     from: 'Doi Inthanon',
-    to: 'Nimman CM',
+    to: 'Mon Jam',
     date: 'Jun 18',
-    note: 'Chom Thong → Nimman · Runs frequently · Easy last leg',
-    mapsUrl: 'https://www.google.com/maps/dir/?api=1&origin=Chom+Thong+Chiang+Mai+Thailand&destination=Nimman+Road+Chiang+Mai+Thailand&travelmode=driving',
+    note: 'Chom Thong → north via Chiang Mai ring road → Mae Rim / Mon Jam',
+    mapsUrl: 'https://www.google.com/maps/dir/?api=1&origin=Chom+Thong+Chiang+Mai+Thailand&destination=Mon+Cham+Mae+Rim+Chiang+Mai+Thailand&travelmode=driving',
+  },
+  {
+    mode: 'Grab / taxi',
+    cost: '฿100–150',
+    time: '~45 min',
+    from: 'Mon Jam',
+    to: 'Nimman CM',
+    date: 'Jun 20',
+    note: 'Mae Rim → Nimman Road · Easy downhill drive into the city',
+    mapsUrl: 'https://www.google.com/maps/dir/?api=1&origin=Mon+Cham+Mae+Rim+Chiang+Mai+Thailand&destination=Nimman+Road+Chiang+Mai+Thailand&travelmode=driving',
   },
 ];
 
 const budget = [
-  { label: 'Accommodation', thb: '฿11,000', aed: '1,100 AED', color: 'bg-forest-light dark:bg-forest-dark/30 text-forest-dark dark:text-forest-mid' },
-  { label: 'Food', thb: '฿8,750', aed: '875 AED', color: 'bg-amber-light dark:bg-amber-dark/20 text-amber-dark dark:text-amber-mid' },
-  { label: 'Transport', thb: '฿7,500', aed: '750 AED', color: 'bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300' },
-  { label: 'Activities', thb: '฿3,300', aed: '330 AED', color: 'bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300' },
-  { label: 'Total', thb: '฿30,550', aed: '3,055 AED', color: 'bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 font-bold' },
-  { label: 'Buffer ✓', thb: '฿9,450', aed: '945 AED', color: 'bg-forest-light dark:bg-forest-dark/40 text-forest-dark dark:text-forest-mid font-bold' },
+  { label: 'Accommodation', thb: '฿14,299', aed: '1,544 AED', color: 'bg-forest-light dark:bg-forest-dark/30 text-forest-dark dark:text-forest-mid' },
+  { label: 'Food', thb: '฿11,000', aed: '1,200 AED', color: 'bg-amber-light dark:bg-amber-dark/20 text-amber-dark dark:text-amber-mid' },
+  { label: 'Transport', thb: '฿7,500', aed: '800 AED', color: 'bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300' },
+  { label: 'Activities', thb: '฿2,750', aed: '300 AED', color: 'bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300' },
+  { label: 'Total', thb: '฿35,549', aed: '3,844 AED', color: 'bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 font-bold' },
+  { label: 'Buffer ✓', thb: '฿4,451', aed: '700 AED', color: 'bg-forest-light dark:bg-forest-dark/40 text-forest-dark dark:text-forest-mid font-bold' },
 ];
 
-const NODE_X = [90, 270, 450, 630, 810];
+const NODE_X = [80, 240, 400, 560, 720, 880];
 const NODE_Y = 90;
-const R = 46;
+const R = 40;
 
 export default function RouteMapTab({ onRegionClick }) {
   return (
@@ -72,7 +83,7 @@ export default function RouteMapTab({ onRegionClick }) {
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/60 z-10"/>
         <div className="absolute inset-0 z-20 flex flex-col justify-end p-4">
           <h2 className="font-serif text-2xl text-white">Northern Thailand</h2>
-          <p className="text-forest-light text-sm">Jun 2–26 · 24 nights · 5 regions</p>
+          <p className="text-forest-light text-sm">Jun 2–27 · 25 nights · 6 regions</p>
         </div>
       </div>
 
@@ -82,7 +93,7 @@ export default function RouteMapTab({ onRegionClick }) {
           <p className="text-xs text-gray-500 dark:text-gray-400">Scroll horizontally →</p>
         </div>
         <div className="overflow-x-auto scrollbar-hide">
-          <svg viewBox="0 0 940 220" width="940" height="220" className="block">
+          <svg viewBox="0 0 980 220" width="980" height="220" className="block">
             {legs.map((leg, i) => (
               <line key={i} x1={NODE_X[i] + R} y1={NODE_Y} x2={NODE_X[i + 1] - R} y2={NODE_Y} stroke="#639922" strokeDasharray="6,4" strokeWidth="2"/>
             ))}
@@ -90,20 +101,20 @@ export default function RouteMapTab({ onRegionClick }) {
               const mx = (NODE_X[i] + NODE_X[i + 1]) / 2;
               return (
                 <g key={i}>
-                  <text x={mx} y={NODE_Y - 26} textAnchor="middle" fontSize="9" fill="#3B6D11" fontFamily="Inter,sans-serif" fontWeight="600">{leg.mode}</text>
-                  <text x={mx} y={NODE_Y - 14} textAnchor="middle" fontSize="10" fill="#BA7517" fontFamily="Inter,sans-serif" fontWeight="700">{leg.cost}</text>
-                  <text x={mx} y={NODE_Y - 2} textAnchor="middle" fontSize="8.5" fill="#6B7280" fontFamily="Inter,sans-serif">{leg.time}</text>
+                  <text x={mx} y={NODE_Y - 26} textAnchor="middle" fontSize="8.5" fill="#3B6D11" fontFamily="Inter,sans-serif" fontWeight="600">{leg.mode}</text>
+                  <text x={mx} y={NODE_Y - 14} textAnchor="middle" fontSize="9.5" fill="#BA7517" fontFamily="Inter,sans-serif" fontWeight="700">{leg.cost}</text>
+                  <text x={mx} y={NODE_Y - 2} textAnchor="middle" fontSize="8" fill="#6B7280" fontFamily="Inter,sans-serif">{leg.time}</text>
                 </g>
               );
             })}
             {stops.map((stop, i) => (
               <g key={i}>
                 <circle cx={NODE_X[i]} cy={NODE_Y} r={R} fill="#3B6D11" stroke="white" strokeWidth="3"/>
-                <rect x={NODE_X[i] - 18} y={NODE_Y + R + 4} width="36" height="18" rx="9" fill="#639922"/>
-                <text x={NODE_X[i]} y={NODE_Y + R + 16} textAnchor="middle" fontSize="10" fill="white" fontFamily="Inter,sans-serif" fontWeight="700">{stop.nights}</text>
-                <text x={NODE_X[i]} y={NODE_Y - 8} textAnchor="middle" fontSize="9.5" fill="white" fontFamily="Inter,sans-serif" fontWeight="700">{stop.label.split(' ').slice(0, 2).join(' ')}</text>
-                <text x={NODE_X[i]} y={NODE_Y + 5} textAnchor="middle" fontSize="8" fill="#EAF3DE" fontFamily="Inter,sans-serif">{stop.label.split(' ').slice(2).join(' ')}</text>
-                <text x={NODE_X[i]} y={NODE_Y + 16} textAnchor="middle" fontSize="8" fill="#EAF3DE" fontFamily="Inter,sans-serif">{stop.dates}</text>
+                <rect x={NODE_X[i] - 16} y={NODE_Y + R + 4} width="32" height="16" rx="8" fill="#639922"/>
+                <text x={NODE_X[i]} y={NODE_Y + R + 14} textAnchor="middle" fontSize="9" fill="white" fontFamily="Inter,sans-serif" fontWeight="700">{stop.nights}</text>
+                <text x={NODE_X[i]} y={NODE_Y - 8} textAnchor="middle" fontSize="8.5" fill="white" fontFamily="Inter,sans-serif" fontWeight="700">{stop.label.split(' ').slice(0, 2).join(' ')}</text>
+                <text x={NODE_X[i]} y={NODE_Y + 5} textAnchor="middle" fontSize="7.5" fill="#EAF3DE" fontFamily="Inter,sans-serif">{stop.label.split(' ').slice(2).join(' ')}</text>
+                <text x={NODE_X[i]} y={NODE_Y + 16} textAnchor="middle" fontSize="7.5" fill="#EAF3DE" fontFamily="Inter,sans-serif">{stop.dates}</text>
               </g>
             ))}
           </svg>
