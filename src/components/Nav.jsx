@@ -1,5 +1,5 @@
 const tabs = [
-  { label: 'Route Map', icon: (
+  { label: 'Route', icon: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5">
       <path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3V6z"/>
       <path d="M9 3v15M15 6v15"/>
@@ -12,16 +12,13 @@ const tabs = [
       <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/>
     </svg>
   )},
-  { label: 'Food', icon: (
+  { label: 'Hotels', icon: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5">
-      <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
-      <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
-      <line x1="6" y1="1" x2="6" y2="4"/>
-      <line x1="10" y1="1" x2="10" y2="4"/>
-      <line x1="14" y1="1" x2="14" y2="4"/>
+      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+      <polyline points="9 22 9 12 15 12 15 22"/>
     </svg>
   )},
-  { label: 'Grab + 7', icon: (
+  { label: 'Transport', icon: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5">
       <rect x="1" y="3" width="15" height="13" rx="1"/>
       <path d="M16 8h5l2 5v4h-7V8z"/>

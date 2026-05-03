@@ -5,20 +5,25 @@ import UnsplashImg from './UnsplashImg';
 const tagStyles = {
   free: 'bg-forest-light text-forest-dark dark:bg-forest-dark/30 dark:text-forest-mid',
   food: 'bg-amber-light text-amber-dark dark:bg-amber-dark/20 dark:text-amber-mid',
-  paid: 'bg-blue-50 text-blue-700 dark:bg-blue-900/20 dark:text-blue-300',
+  'entry fee': 'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400',
   transport: 'bg-purple-50 text-purple-700 dark:bg-purple-900/20 dark:text-purple-300',
   warning: 'bg-red-50 text-red-700 dark:bg-red-900/20 dark:text-red-300',
   admin: 'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400',
   rest: 'bg-teal-50 text-teal-700 dark:bg-teal-900/20 dark:text-teal-300',
 };
 
+// Map old 'paid' tag to 'entry fee' for display
+function getDisplayTag(tag) {
+  if (tag === 'paid') return 'entry fee';
+  return tag;
+}
+
 const callouts = [
   { emoji: '⭐', title: 'June 15 — Best day of the entire trip', body: 'Mae Ya waterfall → Ang Ka cloud forest → Mae Klang Luang coffee. Pack a jacket. One ticket covers everything.', type: 'star' },
   { emoji: '⚠️', title: 'June 21 — ONLY Sunday in Nimman', body: 'Sunday Walking Street Wualai Road. One chance only. Do not miss it.', type: 'warning' },
-  { emoji: '⚠️', title: 'Mon Jaw Doi at Monjam — Free cancel before May 19!', body: 'You must confirm or cancel before May 19, 2026. Payment due May 17. Get visa approved before then!', type: 'urgent' },
-  { emoji: '⚠️', title: 'Motion sickness', body: 'Take tablets BEFORE Pai minivan (Jun 5) AND before Ban Rak Thai driver (Jun 9). Not after — too late.', type: 'warning' },
-  { emoji: '🏨', title: 'All 6 hotels confirmed ✅', body: 'Nature Boutique · Sleep Pai B&B · Malee Guesthouse · Nok Chan Mee Na · Mon Jaw Doi · Nimman Expat Home — all booked!', type: 'star' },
-  { emoji: '🗓️', title: 'June 22 — ONLY Saturday in Nimman', body: 'Jing Jai Market is Saturday only. But you arrive Jun 20 — Jun 21 is your Sunday for Walking Street. Jun 22 is free day.', type: 'warning' },
+  { emoji: '⚠️', title: 'Mon Jaw Doi at Monjam — Cancel before May 19!', body: 'Free cancellation deadline May 19. Payment due May 17. Get visa confirmed before then!', type: 'urgent' },
+  { emoji: '⚠️', title: 'Motion sickness', body: 'Take tablets BEFORE Pai minivan (Jun 5) AND before Ban Rak Thai driver (Jun 9). Not after.', type: 'warning' },
+  { emoji: '🏨', title: 'All 6 hotels booked ✅', body: 'Nature Boutique · Sleep Pai B&B · Malee Guesthouse · Nok Chan Mee Na · Mon Jaw Doi · Nimman Expat Home', type: 'star' },
 ];
 
 const calloutStyle = {
@@ -33,7 +38,7 @@ const calloutTextStyle = {
 };
 
 function ActivityRow({ act }) {
-  if (!act.tag && act.note === '—' && act.cost === '—') return null;
+  const displayTag = getDisplayTag(act.tag);
   return (
     <div className="py-2 border-b border-gray-50 dark:border-gray-800 last:border-0">
       {act.photoUrl && (
@@ -51,9 +56,9 @@ function ActivityRow({ act }) {
         <div className="flex-1 min-w-0">
           <div className="flex items-start gap-2 flex-wrap">
             <span className="text-sm font-medium text-gray-800 dark:text-gray-100 leading-snug">{act.name}</span>
-            {act.tag && tagStyles[act.tag] && (
-              <span className={`text-[9px] font-semibold uppercase tracking-wide px-1.5 py-0.5 rounded-full flex-shrink-0 ${tagStyles[act.tag]}`}>
-                {act.tag}
+            {displayTag && tagStyles[displayTag] && (
+              <span className={`text-[9px] font-semibold uppercase tracking-wide px-1.5 py-0.5 rounded-full flex-shrink-0 ${tagStyles[displayTag]}`}>
+                {displayTag}
               </span>
             )}
           </div>
@@ -92,12 +97,7 @@ function RegionAccordion({ region, isOpen, onToggle, refProp }) {
     <div ref={refProp} className="mb-3 rounded-2xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-800">
       <button onClick={onToggle} className="w-full text-left">
         <div className="relative h-28 overflow-hidden" style={{ background: region.gradient }}>
-          <UnsplashImg
-            photoUrl={region.photoUrl}
-            gradient={region.gradient}
-            alt={region.name}
-            className="w-full h-full object-cover"
-          />
+          <UnsplashImg photoUrl={region.photoUrl} gradient={region.gradient} alt={region.name} className="w-full h-full object-cover"/>
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"/>
           <div className="absolute bottom-0 left-0 right-0 p-3 flex items-end justify-between">
             <div>
@@ -113,12 +113,11 @@ function RegionAccordion({ region, isOpen, onToggle, refProp }) {
           </div>
         </div>
       </button>
-
       {isOpen && (
         <div className="bg-white dark:bg-gray-900">
           <div className="px-3 py-2 bg-gray-50 dark:bg-gray-800/50 border-b border-gray-100 dark:border-gray-800">
             <p className="text-xs text-gray-600 dark:text-gray-400">🏨 {region.hotel}</p>
-            <p className="text-xs text-gray-500 dark:text-gray-500 mt-0.5">🚗 {region.transport}</p>
+            <p className="text-xs text-gray-500 dark:text-gray-500 mt-0.5">🚌 {region.transport}</p>
           </div>
           <div className="p-3">
             {region.days.map((day, i) => (
@@ -163,12 +162,11 @@ export default function FullPlanTab({ jumpRegion, onJumpDone }) {
         </div>
         <div className="mb-4 p-3 rounded-xl bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800">
           <p className="text-xs text-blue-800 dark:text-blue-300 font-medium">
-            📋 Check-out always 12pm · Check-in always 2pm · Travel same afternoon · Never pay two rooms one night
+            📋 Check-out always 12pm · Check-in always 2pm · Travel same afternoon
           </p>
         </div>
         <h2 className="font-serif text-xl text-gray-800 dark:text-gray-100 mb-3">Day-by-Day Plan</h2>
       </div>
-
       <div className="px-4">
         {regions.map((r) => (
           <RegionAccordion
@@ -180,10 +178,9 @@ export default function FullPlanTab({ jumpRegion, onJumpDone }) {
           />
         ))}
       </div>
-
       <div className="mx-4 mt-2 p-3 rounded-xl bg-forest-light dark:bg-forest-dark/30 border border-forest-mid/30">
-        <div className="text-sm font-semibold text-forest-dark dark:text-forest-mid">Jun 27 · Saturday · Fly Chiang Mai → Bangkok</div>
-        <p className="text-xs text-forest-dark/70 dark:text-forest-mid/70 mt-1">Check out Nimman Expat Home · Pre-schedule Grab to airport · End of 25-night trip 🇹🇭</p>
+        <div className="text-sm font-semibold text-forest-dark dark:text-forest-mid">Jun 27 · Saturday · Fly Chiang Mai → Bangkok ✈️</div>
+        <p className="text-xs text-forest-dark/70 dark:text-forest-mid/70 mt-1">Check out Nimman Expat Home · Bolt to airport · End of 25-night trip 🇹🇭</p>
       </div>
     </div>
   );

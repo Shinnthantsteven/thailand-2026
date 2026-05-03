@@ -82,7 +82,7 @@ export const regions = [
     checkIn: 'Jun 5 (arrive ~5:30pm)',
     checkOut: 'Jun 9 noon',
     hotel: 'Sleep Pai Bed & Breakfast · Pai Riverside ✅ BOOKED',
-    transport: 'NO Grab · Bicycle ฿70/day · Tuk-tuk ฿150–200/trip · Group tour ฿400–500',
+    transport: 'NO Grab · Tuk-tuk ฿150–200/trip · Shared day tours ฿400–500',
     photoUrl: P.PAI_BAMBOO,
     gradient: 'linear-gradient(135deg,#0F6E56,#5DCAA5)',
     days: [
@@ -105,7 +105,7 @@ export const regions = [
       {
         date: 'June 7 · Sunday · Bamboo Bridge',
         activities: [
-          { time: '8:00am', name: 'Rent bicycle + town explore', note: "Coffee at Charlie's House ฿70. Flat and easy cycling.", cost: '฿70', tag: 'transport' },
+          { time: '8:00am', name: 'Explore Pai town on foot', note: "Coffee at Charlie's House ฿70. Pai is small and walkable. Easy morning.", cost: 'Free', tag: 'free' },
           { time: '5:00pm', name: 'Bamboo Bridge (Boon Ko Ku So)', note: 'Tuk-tuk ฿150–200. June = electric green rice paddies. Tell driver to wait 30 min.', cost: '฿30', tag: 'paid', photoUrl: P.PAI_BAMBOO },
           { time: 'Tonight', name: 'Book tuk-tuk for 5:15am tomorrow — Yun Lai viewpoint', note: 'Agree ฿150–200 round trip. 5:15am strict departure.', cost: 'Admin', tag: 'warning' },
         ],
@@ -122,7 +122,7 @@ export const regions = [
       {
         date: 'June 9 · Tuesday · Travel to Ban Rak Thai',
         activities: [
-          { time: '12:00pm', name: 'Check out · Return bicycle', note: '—', cost: '—', tag: '' },
+          { time: '12:00pm', name: 'Check out', note: '—', cost: '—', tag: '' },
           { time: '12:30pm', name: 'Private driver to Ban Rak Thai', note: '2–3 hrs. Arrive ~4pm. Message Malee Guesthouse "arriving 4pm June 9".', cost: '฿400–600', tag: 'transport' },
         ],
       },

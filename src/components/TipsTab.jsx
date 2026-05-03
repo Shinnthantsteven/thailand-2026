@@ -1,12 +1,81 @@
 import { useState, useEffect } from 'react';
-import { hotels, budget, tonightList, moneyTips, weatherTips, halalTips, cultureTips, healthTips, packingList } from '../data/tips';
+import UnsplashImg from './UnsplashImg';
+import { tonightList, moneyTips, weatherTips, halalTips, cultureTips, healthTips, packingList } from '../data/tips';
 
-const urgencyStyle = {
-  red: 'bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300 border-red-300 dark:border-red-700',
-  orange: 'bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300 border-orange-300 dark:border-orange-700',
-  yellow: 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 border-yellow-300 dark:border-yellow-700',
-  green: 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 border-green-300 dark:border-green-700',
-};
+const foods = [
+  {
+    name: 'Khao Soi',
+    region: 'Chiang Mai',
+    price: '฿80',
+    priceAED: 'AED 9',
+    halal: true,
+    desc: 'Creamy coconut curry noodle soup — Northern Thailand\'s most famous dish. Order Khao Soi Gai (chicken). Lung Prakit is the best spot.',
+    photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Khao_soi.jpg/1280px-Khao_soi.jpg',
+  },
+  {
+    name: 'Mango Sticky Rice',
+    region: 'Everywhere',
+    price: '฿60',
+    priceAED: 'AED 7',
+    halal: true,
+    desc: 'Sweet sticky rice with fresh mango and coconut milk. Best from Walking Street stalls at night.',
+    photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Mango_with_sticky_rice.jpg/1280px-Mango_with_sticky_rice.jpg',
+  },
+  {
+    name: 'Pad Thai (Chicken)',
+    region: 'Everywhere',
+    price: '฿60',
+    priceAED: 'AED 7',
+    halal: true,
+    desc: 'Stir-fried rice noodles with egg, bean sprouts, peanuts. Say "sai kai" (chicken). Avoid the shrimp version.',
+    photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Pad_thai_kung_Chang_Khien_street_food_stall.jpg/1280px-Pad_thai_kung_Chang_Khien_street_food_stall.jpg',
+  },
+  {
+    name: 'Roti Banana',
+    region: 'Pai',
+    price: '฿50',
+    priceAED: 'AED 6',
+    halal: true,
+    desc: 'Crispy pan-fried flatbread filled with banana and condensed milk. Walking Street staple in Pai.',
+    photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Roti_Mataba.jpg/1280px-Roti_Mataba.jpg',
+  },
+  {
+    name: 'Yunnan Noodles',
+    region: 'Ban Rak Thai',
+    price: '฿70',
+    priceAED: 'AED 8',
+    halal: true,
+    desc: 'Chinese-style noodle soup from the Yunnan community in Ban Rak Thai. Ask "mai sai moo" (no pork) to be safe.',
+    photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Crossed-Bridged_Noodles_%28%E8%BF%87%E6%A1%A5%E7%B1%B3%E7%BA%BF%29.jpg/1280px-Crossed-Bridged_Noodles_%28%E8%BF%87%E6%A1%A5%E7%B1%B3%E7%BA%BF%29.jpg',
+  },
+  {
+    name: 'Pu-erh Tea',
+    region: 'Ban Rak Thai',
+    price: '฿100',
+    priceAED: 'AED 11',
+    halal: true,
+    desc: 'Traditional aged Chinese tea from the local tea houses. Sit, sip slowly, no agenda. The Ban Rak Thai experience.',
+    photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Pu-erh_tea.jpg/1280px-Pu-erh_tea.jpg',
+  },
+  {
+    name: 'Mountain Village Coffee',
+    region: 'Doi Inthanon',
+    price: '฿80',
+    priceAED: 'AED 9',
+    halal: true,
+    desc: 'Arabica coffee grown on the Doi Inthanon slopes. Best at Mae Klang Luang village after your waterfall day.',
+    photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/1280px-A_small_cup_of_coffee.JPG',
+  },
+  {
+    name: 'Street Fruit',
+    region: 'Everywhere',
+    price: '฿30',
+    priceAED: 'AED 4',
+    halal: true,
+    desc: 'Fresh cut papaya, mango, watermelon from street carts. Best snack in 35°C heat. Buy from 7-Eleven too.',
+    photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Papaya_on_market.jpg/1280px-Papaya_on_market.jpg',
+  },
+];
 
 function TipSection({ title, emoji, items, color = 'gray' }) {
   const colorMap = {
@@ -17,13 +86,8 @@ function TipSection({ title, emoji, items, color = 'gray' }) {
     red: 'border-red-100 dark:border-red-900/30 bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300',
     purple: 'border-purple-100 dark:border-purple-900/30 bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300',
   };
-  const [header, body] = colorMap[color].split(' ').reduce((acc, cls) => {
-    acc[1].push(cls);
-    return acc;
-  }, [[], []]);
-
   return (
-    <div className={`mx-4 mb-3 rounded-xl overflow-hidden border ${colorMap[color].split(' ').slice(0, 1).join(' ')}`}>
+    <div className={`mx-4 mb-3 rounded-xl overflow-hidden border ${colorMap[color].split(' ')[0]}`}>
       <div className={`px-4 py-2.5 ${colorMap[color]}`}>
         <h3 className="font-semibold text-sm">{emoji} {title}</h3>
       </div>
@@ -57,63 +121,47 @@ export default function TipsTab() {
   return (
     <div className="pb-4">
       <div className="px-4 pt-4 pb-3">
-        <h2 className="font-serif text-2xl text-gray-800 dark:text-gray-100">Trip Tips</h2>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">Hotels · Budget · Packing · Culture</p>
+        <h2 className="font-serif text-2xl text-gray-800 dark:text-gray-100">Tips</h2>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">Food · Halal · Culture · Health · Packing</p>
       </div>
 
-      {/* Hotel booking — most important */}
-      <div className="mx-4 mb-4">
-        <h3 className="font-serif text-lg text-gray-800 dark:text-gray-100 mb-2">🏨 Book These Hotels</h3>
-        <div className="rounded-xl overflow-hidden border border-gray-100 dark:border-gray-800">
-          {hotels.map((h, i) => (
-            <div key={i} className={`flex gap-3 p-3 bg-white dark:bg-gray-900 ${i < hotels.length - 1 ? 'border-b border-gray-50 dark:border-gray-800' : ''}`}>
-              <div className="flex-1 min-w-0">
-                <div className="text-sm font-medium text-gray-800 dark:text-gray-100 leading-tight">{h.name}</div>
-                <div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
-                  {h.checkIn} → {h.checkOut} · {h.nights}N · {h.budget}
+      {/* Food Guide with Photos */}
+      <div className="px-4 mb-4">
+        <h3 className="font-serif text-lg text-gray-800 dark:text-gray-100 mb-1">🍜 Must-Eat Food Guide</h3>
+        <p className="text-xs text-gray-500 dark:text-gray-400 mb-3">Halal-friendly · All confirmed safe</p>
+        <div className="grid grid-cols-2 gap-3">
+          {foods.map((food, i) => (
+            <div key={i} className="rounded-xl overflow-hidden border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900">
+              <div className="relative h-28 overflow-hidden" style={{ background: 'linear-gradient(135deg,#BA7517,#F5C842)' }}>
+                <UnsplashImg
+                  photoUrl={food.photo}
+                  gradient="linear-gradient(135deg,#BA7517,#F5C842)"
+                  alt={food.name}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-black/60 to-transparent"/>
+                <div className="absolute bottom-2 left-2 right-2 flex items-end justify-between">
+                  <span className="text-[10px] bg-black/40 text-white px-1.5 py-0.5 rounded-full">{food.region}</span>
+                  <span className="text-xs font-bold text-white">{food.priceAED}</span>
                 </div>
+                {food.halal && (
+                  <div className="absolute top-2 right-2 text-[9px] bg-green-500 text-white px-1.5 py-0.5 rounded-full font-bold">HALAL ✓</div>
+                )}
               </div>
-              <span className={`flex-shrink-0 text-[10px] font-bold px-2 py-0.5 rounded-full border self-start mt-0.5 ${urgencyStyle[h.urgency]}`}>
-                {h.urgencyLabel}
-              </span>
+              <div className="p-2.5">
+                <h4 className="font-semibold text-xs text-gray-800 dark:text-gray-100">{food.name}</h4>
+                <p className="text-[10px] text-gray-500 dark:text-gray-400 mt-0.5 leading-snug">{food.desc}</p>
+                <div className="mt-1 text-[10px] text-amber-dark dark:text-amber-mid font-semibold">{food.price}</div>
+              </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Budget */}
-      <div className="mx-4 mb-4">
-        <h3 className="font-serif text-lg text-gray-800 dark:text-gray-100 mb-2">💰 Budget Summary</h3>
-        <div className="grid grid-cols-2 gap-2">
-          {budget.rows.map((r) => (
-            <div key={r.label} className="rounded-xl p-3 bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800">
-              <div className="text-[10px] uppercase tracking-wide text-gray-400 dark:text-gray-500 mb-1">{r.label}</div>
-              <div className="text-base font-bold text-gray-800 dark:text-gray-100">{r.thb}</div>
-              <div className="text-[11px] text-gray-400 dark:text-gray-500">{r.aed}</div>
-            </div>
-          ))}
-          <div className="rounded-xl p-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 col-span-1">
-            <div className="text-[10px] uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-1">Total</div>
-            <div className="text-base font-bold text-gray-800 dark:text-gray-100">{budget.total.thb}</div>
-            <div className="text-[11px] text-gray-400">{budget.total.aed}</div>
-          </div>
-          <div className="rounded-xl p-3 bg-forest-light dark:bg-forest-dark/30 border border-forest-mid/30 col-span-1">
-            <div className="text-[10px] uppercase tracking-wide text-forest-dark dark:text-forest-mid mb-1">Buffer ✓</div>
-            <div className="text-base font-bold text-forest-dark dark:text-forest-mid">{budget.buffer.thb}</div>
-            <div className="text-[11px] text-forest-dark/70 dark:text-forest-mid/70">{budget.buffer.aed}</div>
-          </div>
-        </div>
-        <div className="mt-2 p-2.5 rounded-lg bg-gray-50 dark:bg-gray-800 text-center">
-          <span className="text-xs text-gray-500 dark:text-gray-400">Your budget: </span>
-          <span className="text-sm font-bold text-gray-800 dark:text-gray-100">{budget.yourBudget.thb} ({budget.yourBudget.aed})</span>
-          <span className="text-xs text-gray-500 dark:text-gray-400"> · 1 AED = ฿10</span>
-        </div>
-      </div>
-
-      {/* Tonight from Dubai */}
+      {/* Tonight */}
       <div className="mx-4 mb-3 rounded-xl overflow-hidden border border-red-200 dark:border-red-800/50">
         <div className="px-4 py-2.5 bg-red-50 dark:bg-red-900/20">
-          <h3 className="font-semibold text-sm text-red-700 dark:text-red-300">🔴 Do Tonight from Dubai</h3>
+          <h3 className="font-semibold text-sm text-red-700 dark:text-red-300">🔴 Do Before You Fly</h3>
         </div>
         <div className="px-4 py-3 bg-white dark:bg-gray-900 space-y-2">
           {tonightList.map((item, i) => (
@@ -125,7 +173,7 @@ export default function TipsTab() {
         </div>
       </div>
 
-      <TipSection title="Money" emoji="💵" items={moneyTips} color="amber" />
+      <TipSection title="Money Tips" emoji="💵" items={moneyTips} color="amber" />
       <TipSection title="Weather in June" emoji="🌧️" items={weatherTips} color="blue" />
       <TipSection title="Halal Eating" emoji="🕌" items={halalTips} color="green" />
       <TipSection title="Temples + Culture" emoji="🛕" items={cultureTips} color="purple" />
@@ -168,7 +216,7 @@ export default function TipsTab() {
         </div>
         {doneCount === packingList.length && (
           <div className="mt-2 text-center text-sm text-forest-dark dark:text-forest-mid font-semibold">
-            ✅ All packed — you're ready!
+            ✅ All packed — you're ready for Thailand!
           </div>
         )}
       </div>
