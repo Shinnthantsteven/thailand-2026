@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Background circle: deep forest green -->
+  <circle cx="256" cy="256" r="256" fill="#3B6D11"/>
+
+  <!-- Sun rays -->
+  <circle cx="340" cy="130" r="52" fill="#FAC775"/>
+  <line x1="340" y1="62" x2="340" y2="46" stroke="#FAC775" stroke-width="10" stroke-linecap="round"/>
+  <line x1="340" y1="198" x2="340" y2="214" stroke="#FAC775" stroke-width="10" stroke-linecap="round"/>
+  <line x1="272" y1="130" x2="256" y2="130" stroke="#FAC775" stroke-width="10" stroke-linecap="round"/>
+  <line x1="408" y1="130" x2="424" y2="130" stroke="#FAC775" stroke-width="10" stroke-linecap="round"/>
+  <line x1="292" y1="82" x2="282" y2="72" stroke="#FAC775" stroke-width="10" stroke-linecap="round"/>
+  <line x1="388" y1="178" x2="398" y2="188" stroke="#FAC775" stroke-width="10" stroke-linecap="round"/>
+  <line x1="388" y1="82" x2="398" y2="72" stroke="#FAC775" stroke-width="10" stroke-linecap="round"/>
+  <line x1="292" y1="178" x2="282" y2="188" stroke="#FAC775" stroke-width="10" stroke-linecap="round"/>
+
+  <!-- Palm trunk: leaning right -->
+  <path d="M190 410 Q230 320 280 230 Q295 200 300 180" stroke="#854F0B" stroke-width="18" fill="none" stroke-linecap="round"/>
+
+  <!-- Palm leaves -->
+  <!-- Left big leaf -->
+  <path d="M300 180 Q240 140 190 155 Q230 170 280 210" fill="#5A9B20"/>
+  <!-- Right big leaf -->
+  <path d="M300 180 Q360 140 390 160 Q355 175 305 215" fill="#4A8B15"/>
+  <!-- Upper left leaf -->
+  <path d="M300 180 Q260 100 240 80 Q265 115 295 170" fill="#639922"/>
+  <!-- Upper right leaf -->
+  <path d="M300 180 Q350 95 375 75 Q345 115 300 175" fill="#5A9B20"/>
+  <!-- Top leaf -->
+  <path d="M300 180 Q300 100 300 75 Q308 115 305 175" fill="#4A8B15"/>
+
+  <!-- Coconuts -->
+  <circle cx="290" cy="196" r="12" fill="#8B5E3C"/>
+  <circle cx="308" cy="200" r="11" fill="#7A5230"/>
+  <circle cx="280" cy="205" r="10" fill="#8B5E3C"/>
+
+  <!-- Beach/ground wave -->
+  <path d="M60 390 Q150 370 256 380 Q362 390 450 375 L450 512 L60 512 Z" fill="#E8C87A"/>
+  <!-- Water shimmer -->
+  <path d="M60 390 Q150 370 256 380 Q362 390 450 375 L450 420 Q362 408 256 398 Q150 388 60 408 Z" fill="#5DCAA5" opacity="0.6"/>
+</svg>
