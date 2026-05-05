@@ -160,6 +160,7 @@ function realPhotoFor(title = '', subtitle = '', tone = '') {
   return fallbackByTone[tone] || '/photos/chiangmai-old-cover.jpg';
 }
 
+const asset = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
 const cn = (...xs) => xs.filter(Boolean).join(' ');
 const mapSearch = (q) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
 function classify(text='') {
@@ -191,9 +192,9 @@ function MapButton({url,label='Google Maps'}) {
 
 function Visual({tone='mountain',title,subtitle,className=''}) {
   const [emoji,bg] = visual[tone] || visual.mountain;
-  const photo = realPhotoFor(title, subtitle, tone);
+  const photo = asset(realPhotoFor(title, subtitle, tone));
   return <div className={cn('relative min-h-[180px] overflow-hidden rounded-[2rem] bg-gradient-to-br p-5 text-white shadow-lg', bg, className)}>
-    <img src={photo} alt={title} className="absolute inset-0 h-full w-full object-cover" loading="lazy" onError={(e)=>{e.currentTarget.src='/photos/chiangmai-old-cover.jpg'}} />
+    <img src={photo} alt={title} className="absolute inset-0 h-full w-full object-cover" loading="lazy" onError={(e)=>{e.currentTarget.src=asset('/photos/chiangmai-old-cover.jpg')}} />
     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/5"/>
     <div className="absolute bottom-5 left-5 right-5">
       <h3 className="mt-1 text-2xl font-black leading-tight drop-shadow">{title}</h3>
@@ -310,7 +311,7 @@ function TransportTab() {
   return <div className="space-y-5"><Title title="Transport command center" subtitle="Use this tab before each difficult movement. Every big route has a Google Maps direction link."/>
     <div className="grid gap-4 lg:grid-cols-2">{routeLegs.map(leg=><div key={leg.date+leg.to} className="rounded-[2rem] bg-white p-5 ring-1 ring-stone-200"><div className="flex flex-wrap items-center justify-between gap-3"><h3 className="font-serif text-2xl text-stone-950">{leg.date}: {leg.from} → {leg.to}</h3><Badge tone="amber">{leg.cost}</Badge></div><p className="mt-2 font-black text-emerald-800">{leg.mode} · {leg.time}</p><p className="mt-2 text-sm text-stone-600">{leg.note}</p><div className="mt-4"><MapButton url={leg.url} label="Directions"/></div></div>)}</div>
     <Title title="Route previews" subtitle="Main transfer routes and Doi internal route cards made for the app."/>
-    <div className="grid gap-4 lg:grid-cols-3">{routeVisuals.map((route)=><div key={route.title} className="overflow-hidden rounded-[2rem] bg-white ring-1 ring-stone-200"><img src={route.image} alt={route.title} className="h-52 w-full object-cover" loading="lazy"/><div className="p-4"><h3 className="font-black text-stone-950">{route.title}</h3><p className="mt-2 text-sm text-stone-600">{route.note}</p></div></div>)}</div>
+    <div className="grid gap-4 lg:grid-cols-3">{routeVisuals.map((route)=><div key={route.title} className="overflow-hidden rounded-[2rem] bg-white ring-1 ring-stone-200"><img src={asset(route.image)} alt={route.title} className="h-52 w-full object-cover" loading="lazy"/><div className="p-4"><h3 className="font-black text-stone-950">{route.title}</h3><p className="mt-2 text-sm text-stone-600">{route.note}</p></div></div>)}</div>
     <Title title="Hard-day notes" subtitle="Detailed notes from your final itinerary."/>
     <div className="grid gap-4 lg:grid-cols-2">{hard.map(day=><div key={day.date} className="rounded-[2rem] bg-white p-5 ring-1 ring-stone-200"><div className="flex items-start justify-between gap-3"><h3 className="font-serif text-2xl text-stone-950">{day.date}</h3><Badge tone="amber">{day.budget}</Badge></div><p className="mt-2 font-black text-emerald-800">{day.summary}</p><p className="mt-3 text-sm text-stone-700">{day.transport}</p><div className="mt-4 space-y-2">{day.items.slice(0,5).map((it,i)=><div key={i} className="rounded-2xl bg-stone-50 p-3 text-sm"><b>{it[0]}</b> · {it[1]} <span className="font-black text-stone-900">{it[2]}</span></div>)}</div></div>)}</div>
   </div>
@@ -343,3 +344,4 @@ export default function App() {
   const Screen = useMemo(()=>({Overview, Regions:RegionsTab, Plan:PlanTab, Food:FoodTab, Transport:TransportTab, Budget:BudgetTab, Messages:MessagesTab}[active]),[active]);
   return <div className="min-h-screen bg-[#f4efe4] text-stone-900"><Header active={active} setActive={setActive}/><main className="mx-auto max-w-7xl px-4 py-6"><Screen/></main></div>
 }
+
