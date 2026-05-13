@@ -1,0 +1,20 @@
+{
+  "name": "Thailand 2026",
+  "short_name": "Thailand",
+  "description": "24-night Northern Thailand travel guide — Jun 2–26 2026 · Chiang Mai · Pai · Ban Rak Thai · Doi Inthanon",
+  "start_url": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#3B6D11",
+  "theme_color": "#3B6D11",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["travel", "lifestyle"],
+  "lang": "en"
+}
