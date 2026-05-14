@@ -1,10 +1,11 @@
 export const hotels = [
-  { dates:'Jun 2–5', area:'Chiang Mai Old City', name:'Nature Boutique Hotel at Chiangmai', cost:'AED 133 / ฿1,229', note:'Old City base. Good for first city days.' },
-  { dates:'Jun 5–9', area:'Pai', name:'Sleep Pai Bed & Breakfast', cost:'AED 216 / ฿1,996', note:'Pai Riverside. Walking Street access.' },
-  { dates:'Jun 9–13', area:'Ban Rak Thai / Mae Hong Son', name:'Malee Guesthouse', cost:'AED 323 / ฿2,994', note:'Quiet lake/tea village base. Cancellation is strict.' },
+  { dates:'Jun 3–5', area:'Chiang Mai Old City', name:'Collection O Khu Mueang (Tha Phae Gate)', cost:'AED 68 / ฿555', note:'Old City base near Tha Phae Gate. 2 nights.' },
+  { dates:'Jun 5–9', area:'Pai', name:'Sleep Pai Bed & Breakfast', cost:'AED 216 / ฿1,996', note:'Pai Riverside. Walking Street access. Pay at property.' },
+  { dates:'Jun 9–13', area:'Ban Rak Thai / Mae Hong Son', name:'Malee Guesthouse', cost:'AED 323 / ฿2,994', note:'Quiet lake/tea village base. Cancellation is strict (92%).' },
   { dates:'Jun 13–18', area:'Doi Inthanon / Chom Thong', name:'Nok Chan Mee Na', cost:'AED 313 / ฿2,900', note:'Important base for Doi Inthanon. Ask hotel for driver.' },
-  { dates:'Jun 18–20', area:'Mon Jam', name:'Mon Jaw Doi at Monjam', cost:'AED 172 / ฿1,800', note:'Mountain chill only. Breakfast included.' },
+  { dates:'Jun 18–20', area:'Mon Jam', name:'Mon Jaw Doi at Monjam', cost:'AED 217 / ฿1,800', note:'Mountain chill only. Breakfast included. Already paid.' },
   { dates:'Jun 20–27', area:'Nimman', name:'Nimman Expat Home', cost:'AED 365 / ฿3,380', note:'Final Chiang Mai base. Markets + Mae Kampong access.' },
+  { dates:'Jun 27–30', area:'Bangkok', name:'Collection O The Spades Hostel (Siam)', cost:'AED 58 / ฿555', note:'Mixed dorm near Siam BTS. 3 nights before flight home.' },
 ];
 
 export const budget = {
@@ -54,31 +55,50 @@ export const messages = [
 export const days = [
   {
     date:'June 1', area:'Preparation', hotel:'No hotel / pre-trip', budget:'0–100 THB',
-    summary:'Packing and setup only.',
+    summary:'Packing and setup only. Flight departs tonight at 21:00.',
     items:[
-      ['All day','Prepare 7 kg luggage, passport, booking confirmations, offline maps, motion sickness tablets, cash backup, waterproof pouch, rain poncho/buy in Thailand.','0–100 THB'],
+      ['All day','Prepare 7 kg cabin bag, passport, e-visa printout, booking confirmations, offline maps, motion sickness tablets, powerbank, cables.','0–100 THB'],
+      ['18:00','Head to Dubai International Airport (DXB).','Taxi/Uber'],
+      ['21:00','Gulf Air GF511 departs Dubai.','On flight'],
     ],
-    transport:'No travel movement.', food:'Eat normally before trip.', risk:'Check documents and hotel confirmations.',
+    transport:'Taxi/Uber to DXB early.', food:'Eat before airport or airport food.', risk:'Check in online. Print or save e-visa. Passport + powerbank in hand luggage.',
   },
   {
-    date:'June 2', area:'Chiang Mai Old City', hotel:'Nature Boutique Hotel at Chiangmai', budget:'250–450 THB',
-    summary:'Arrival and rest only.',
-    items:[['Arrival','Grab/Bolt airport → Old City hotel, check in, rest.','150–300 THB'],['Evening','Simple local dinner near hotel.','80–150 THB']],
-    transport:'Airport → Old City by Grab/Bolt. Avoid airport taxi counters.', food:'Simple local dinner, no expensive café.', risk:'Do not add activities after flight.',
-  },
-  {
-    date:'June 3', area:'Chiang Mai Old City', hotel:'Nature Boutique Hotel at Chiangmai', budget:'400–650 THB',
-    summary:'Money exchange, Monk’s Trail, Mae Kha Canal, Chedi Luang night temple.',
+    date:'June 2', area:'In transit', hotel:'On flight', budget:'0 THB',
+    summary:'Overnight flight Dubai → Bangkok. Arrive Bangkok 09:45. AirAsia to Chiang Mai at 12:20.',
     items:[
-      ['8:30 AM','SuperRich money exchange.','Free'],['9:30 AM','Monk’s Trail → Wat Pha Lat. Go early before heat.','Transport 70–150 THB'],['11:30 AM','Khao Soi lunch.','60–100 THB'],['1:30–4:30 PM','Rest at hotel.','Free'],['5:30 PM','Mae Kha Canal walk + street food.','100–180 THB'],['8:00 PM','Old City moat walk.','Free'],['8:30–9:30 PM','Wat Chedi Luang night visit.','Free/outside'],
+      ['09:45','Land Bangkok Suvarnabhumi. Clear immigration.','Immigration'],
+      ['10:30','Airside: AirAsia check-in counter (same airport).','Free'],
+      ['12:20','AirAsia FD4118 Bangkok → Chiang Mai.','On flight'],
+      ['13:40','Arrive Chiang Mai (CNX).','Landed'],
     ],
-    transport:'Walk where possible. Grab/Bolt for far points.', food:'Khao Soi + street food dinner.', risk:'Main activity in morning, evening light only.',
+    transport:'All same airport (Suvarnabhumi). No transfer needed. Immigration → check-in → gate.', food:'Grab airport snack between flights.', risk:'2h35m connection is tight. Move fast after landing. No checked bag = no belt wait.',
   },
   {
-    date:'June 4', area:'Chiang Mai / Nimman', hotel:'Nature Boutique Hotel at Chiangmai', budget:'450–750 THB',
-    summary:'Chiang Mai Gate breakfast, Baan Kang Wat, PLUTO Café, Nimman evening.',
-    items:[['8:30–10:00 AM','Chiang Mai Gate breakfast.','60–120 THB'],['3:30–5:30 PM','Baan Kang Wat art village.','Free + transport'],['6:00 PM onward','PLUTO Café + Nimman walk + dinner.','200–400 THB']],
-    transport:'Old City → Baan Kang Wat → Nimman → hotel by Grab/Bolt. Estimate 200–400 THB.', food:'Local breakfast, one PLUTO café drink, cheap dinner.', risk:'Baan Kang Wat is best before evening; do not go too late.',
+    date:'June 3', area:'Chiang Mai Old City', hotel:'Collection O Khu Mueang (Tha Phae Gate)', budget:'350–600 THB',
+    summary:'Arrive 13:40, check in, rest, then SuperRich + Mae Kha Canal + Tha Phae Gate street food.',
+    items:[
+      ['13:40','Arrive CNX. Grab/Bolt airport → Collection O (Tha Phae Gate).','150–250 THB'],
+      ['14:30','Check in, shower, rest 1–2 hours.','Free'],
+      ['16:30','SuperRich money exchange. Open until late, walking distance in Old City.','Free'],
+      ['17:30','Mae Kha Canal walk. Easy flat walk, no effort needed.','Free'],
+      ['19:00','Street food dinner near Tha Phae Gate. Lots of options right by hotel.','80–150 THB'],
+      ['20:00','Wat Chedi Luang outside walk (optional). Old City moat loop.','Free'],
+    ],
+    transport:'Grab/Bolt from airport only. Rest of evening is walking distance from hotel.', food:'Street food near Tha Phae Gate. Keep it cheap and easy.', risk:'You had a long travel day from Dubai. SuperRich + canal + food is enough. No far trips tonight.',
+  },
+  {
+    date:'June 4', area:'Chiang Mai Old City', hotel:'Collection O Khu Mueang (Tha Phae Gate)', budget:'450–750 THB',
+    summary:'Full day: Monk’s Trail, Khao Soi, Baan Kang Wat, PLUTO Café, Nimman evening.',
+    items:[
+      ['8:30 AM','Monk’s Trail → Wat Pha Lat. Go early before heat. Best of Chiang Mai.','Transport 70–150 THB'],
+      ['10:30 AM','Chiang Mai Gate morning market breakfast (if open) or local café.','60–100 THB'],
+      ['11:30 AM','Khao Soi Gai lunch. Must-eat, don’t skip.','60–100 THB'],
+      ['1:00–3:30 PM','Rest at hotel. Afternoon heat is intense in June.','Free'],
+      ['4:00 PM','Baan Kang Wat art village. Grab/Bolt there.','Free + 80–150 THB transport'],
+      ['6:00 PM','PLUTO Café + Nimman walk + dinner.','200–350 THB'],
+    ],
+    transport:'Walk Old City in morning. Grab/Bolt to Nimman/Baan Kang Wat afternoon.', food:'Khao Soi is essential today. PLUTO one drink only.', risk:'Morning activity is priority. Do not skip Monk’s Trail for a lie-in.',
   },
   {
     date:'June 5', area:'Chiang Mai → Pai', hotel:'Sleep Pai Bed & Breakfast', budget:'500–800 THB',
@@ -136,9 +156,9 @@ export const days = [
   },
   {
     date:'June 14', area:'Doi Inthanon / Chom Thong', hotel:'Nok Chan Mee Na', budget:'500–900 THB',
-    summary:'Recover + short Wachirathan Waterfall.',
-    items:[['Morning','Sleep and recover.','Free'],['3:00 PM','Wachirathan Waterfall, hotel-arranged local songthaew/taxi return.','300–700 THB'],['Evening','Dinner, rest, arrange Doi driver package.','250–400 THB food']],
-    transport:'Local songthaew/taxi return only.', food:'Simple local food.', risk:'Ask hotel for June 15 + 17 driver package tonight.',
+    summary:'Recover and arrange the Doi Inthanon driver package. No waterfall today.',
+    items:[['Morning','Sleep and recover after the long transfer.','Free'],['Afternoon','Stay around Nok Chan Mee Na / Chom Thong, light food, laundry, rest.','150–300 THB'],['Evening','Dinner, rest, arrange Doi driver package for June 15.','250–400 THB food']],
+    transport:'None unless needed for food. Save energy and cash.', food:'Simple local food.', risk:'Ask hotel for June 15 + 17 driver package tonight.',
   },
   {
     date:'June 15', area:'Doi Inthanon', hotel:'Nok Chan Mee Na', budget:'1,700–2,200 THB',
@@ -213,9 +233,52 @@ export const days = [
     transport:'Minimal.', food:'Local food.', risk:'Do not add new activity.',
   },
   {
-    date:'June 27', area:'Nimman → Airport', hotel:'Check out', budget:'250–500 THB',
-    summary:'Check out and airport/next destination.',
-    items:[['Morning','Check out Nimman Expat Home.','Free'],['Before flight','Bolt Nimman → airport.','150–300 THB'],['Food','Simple breakfast/snacks.','100–250 THB']],
-    transport:'Bolt to airport.', food:'Simple.', risk:'Pre-schedule Bolt if needed.',
+    date:'June 27', area:'Nimman → Bangkok', hotel:'Collection O The Spades Hostel (Siam)', budget:'300–600 THB',
+    summary:'Check out Nimman. AirAsia 07:00 → Bangkok 08:15. Check in Bangkok hostel.',
+    items:[
+      ['05:30','Wake up, check out Nimman Expat Home.','Free'],
+      ['06:00','Bolt Nimman → Chiang Mai Airport (CNX).','150–250 THB'],
+      ['07:00','AirAsia FD4105 Chiang Mai → Bangkok Suvarnabhumi.','On flight'],
+      ['08:15','Arrive Bangkok. Grab or Airport Rail Link to Siam/Ratchathewi.','150–200 THB'],
+      ['10:00','Check in Collection O The Spades Hostel (early or store luggage).','Free'],
+      ['Afternoon','Siam area walk or MBK browse.','Free–150 THB'],
+      ['Evening','Ratchathewi street food dinner.','80–150 THB'],
+    ],
+    transport:'Bolt to CNX early. Airport Rail Link (City Line) is cheapest from Suvarnabhumi → Phaya Thai → BTS to Siam.', food:'Street food near Siam/Ratchathewi.', risk:'Early wake up. Bolt should be pre-scheduled night before.',
+  },
+  {
+    date:'June 28', area:'Bangkok', hotel:'Collection O The Spades Hostel (Siam)', budget:'500–900 THB',
+    summary:'Bangkok day 1: Grand Palace/Wat Phra Kaew area, Chao Phraya, Wat Arun, street food.',
+    items:[
+      ['8:00 AM','Wat Phra Kaew + Grand Palace. Go early before heat and crowds.','500 THB entry (or skip to save)'],
+      ['11:30 AM','Pad Thai lunch near river.','80–150 THB'],
+      ['1:00 PM','Chao Phraya Express Boat → Wat Arun.','15–30 THB boat + free'],
+      ['3:00 PM','Return to hostel, rest.','Free'],
+      ['Evening','Khao San Road or Silom street food walk.','150–300 THB'],
+    ],
+    transport:'BTS Skytrain or MRT for city moves. Cheapest option.', food:'Street food + river area food.', risk:'Grand Palace is very hot June; go early morning only.',
+  },
+  {
+    date:'June 29', area:'Bangkok', hotel:'Collection O The Spades Hostel (Siam)', budget:'400–700 THB',
+    summary:'Bangkok day 2: relaxed. Markets, Siam, or rest before flight home.',
+    items:[
+      ['Morning','Siam Paragon/MBK browse or nearby market.','Free'],
+      ['Afternoon','Rest at hostel. Final Bangkok café if budget allows.','100–200 THB'],
+      ['Evening','Final Bangkok street food dinner near Ratchathewi.','100–200 THB'],
+      ['Night','Pack, prepare documents, pre-schedule Grab for tomorrow.','Admin'],
+    ],
+    transport:'BTS is everywhere from Siam.', food:'Street food or market.', risk:'Light day — save energy for tomorrow’s flight. Do not go far.',
+  },
+  {
+    date:'June 30', area:'Bangkok → Dubai', hotel:'On flight', budget:'300–500 THB',
+    summary:'Check out and fly home. Gulf Air departs 20:15, arrives Dubai Jul 1 at 03:30.',
+    items:[
+      ['Morning','Check out Collection O The Spades Hostel.','Free'],
+      ['Afternoon','Relax near Siam or early airport.','Free'],
+      ['16:00','Head to Suvarnabhumi (BKK). Allow 1h by Grab/Rail.','150–250 THB'],
+      ['17:00','At airport. Check in online, drop bag, security.','Admin'],
+      ['20:15','Gulf Air GF153 Bangkok → Dubai. Arrives Jul 1 03:30.','On flight'],
+    ],
+    transport:'Grab or Airport Rail Link (City Line from Phaya Thai). Get there by 17:00.', food:'Airport food or bring snack.', risk:'Check in online. Print or have boarding pass ready. Arrive airport by 17:00.',
   },
 ];

@@ -187,11 +187,11 @@ export const regions = [
     gradient: 'linear-gradient(135deg,#27500A,#639922)',
     days: [
       {
-        date: 'June 14 · Sunday · Recover + Wachirathan Waterfall',
+        date: 'June 14 · Sunday · Recover + arrange driver',
         activities: [
-          { time: 'Morning', name: 'Rest · Recover from travel', note: '—', cost: '—', tag: '' },
-          { time: '3:00pm', name: 'Wachirathan Waterfall', note: 'Tuk-tuk ฿200–300 round trip. You WILL get completely soaked. Wear it.', cost: '฿300 park', tag: 'paid', photoUrl: P.WACHIRATHAN },
-          { time: 'Tonight', name: 'Arrange full-day park driver for June 15', note: 'Mae Ya → Ang Ka summit → Mae Klang Luang. ฿900–1,200 flat rate.', cost: 'Admin', tag: 'warning' },
+          { time: 'Morning', name: 'Rest · Recover from travel', note: 'No waterfall today. Save cash and energy.', cost: '—', tag: 'rest' },
+          { time: 'Afternoon', name: 'Stay around Nok Chan Mee Na / Chom Thong', note: 'Light food, laundry, rice-field view, no far activity.', cost: 'Low spend', tag: 'rest' },
+          { time: 'Tonight', name: 'Arrange full-day park driver for June 15', note: 'Mae Ya → Summit → Ang Ka → Mae Klang Luang. Fixed price before leaving.', cost: 'Admin', tag: 'warning' },
         ],
       },
       {
