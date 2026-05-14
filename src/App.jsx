@@ -419,32 +419,43 @@ function MessageBox({title, text, label, copied, copyText}) {
   );
 }
 
+function WeatherMood({tone='', title=''}) {
+  const text = `${tone} ${title}`.toLowerCase();
+  const mood = text.includes('doi') || text.includes('forest') || text.includes('water') || text.includes('pai') || text.includes('mae kampong') ? 'rain' : text.includes('bangkok') || text.includes('market') ? 'glow' : 'sun';
+  if (mood === 'rain') {
+    return <div className="weather-layer rain-layer" aria-hidden="true">{Array.from({length:18},(_,i)=><i key={i} style={{left:`${(i*17)%100}%`, animationDelay:`${(i%6)*.22}s`, animationDuration:`${1.1+(i%5)*.16}s`}} />)}</div>;
+  }
+  if (mood === 'glow') return <div className="weather-layer city-glow" aria-hidden="true"><span/><b/></div>;
+  return <div className="weather-layer sun-layer" aria-hidden="true"><span/></div>;
+}
+
 function Visual({tone='mountain',title,subtitle,className=''}) {
   const [emoji,bg] = visual[tone] || visual.mountain;
   const photo = asset(realPhotoFor(title, subtitle, tone));
-  return <div className={cn('relative min-h-[150px] overflow-hidden rounded-[1.5rem] bg-gradient-to-br p-4 text-white shadow-lg sm:min-h-[180px] sm:rounded-[2rem] sm:p-5', bg, className)}>
+  return <div className={cn('region-visual relative min-h-[128px] overflow-hidden rounded-[1.35rem] bg-gradient-to-br p-3 text-white shadow-lg sm:min-h-[180px] sm:rounded-[2rem] sm:p-5', bg, className)}>
     <img src={photo} alt={title} className="absolute inset-0 h-full w-full object-cover" loading="lazy" onError={(e)=>{e.currentTarget.src=asset('/photos/chiangmai-old-cover.jpg')}} />
-    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/5"/>
-    <div className="absolute bottom-4 left-4 right-4 sm:bottom-5 sm:left-5 sm:right-5">
-      <h3 className="mt-1 text-lg font-black leading-tight drop-shadow sm:text-xl">{title}</h3>
-      {subtitle && <p className="mt-1 max-w-[90%] text-xs leading-snug text-white/90 sm:max-w-[85%] sm:text-sm">{subtitle}</p>}
+    <WeatherMood tone={tone} title={title}/>
+    <div className="absolute inset-0 bg-gradient-to-t from-black/72 via-black/25 to-black/5"/>
+    <div className="absolute bottom-3 left-3 right-3 sm:bottom-5 sm:left-5 sm:right-5">
+      <h3 className="mt-1 text-base font-black leading-tight drop-shadow sm:text-xl">{title}</h3>
+      {subtitle && <p className="mt-1 max-w-[94%] text-[11px] leading-snug text-white/90 sm:max-w-[85%] sm:text-sm">{subtitle}</p>}
     </div>
   </div>
 }
 
 function Header({active,setActive}) {
-  return <header className="sticky top-0 z-40 border-b border-white/10 bg-emerald-950/95 text-white backdrop-blur">
-    <div className="mx-auto max-w-7xl px-3 py-3 sm:px-4 sm:py-4">
+  return <header className="app-header sticky top-0 z-40 border-b border-white/10 bg-emerald-950/95 text-white backdrop-blur">
+    <div className="mx-auto max-w-7xl px-3 py-2 sm:px-4 sm:py-4">
       <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
         <div className="flex items-center gap-3">
-          <img src={asset('/favicon.png')} alt="Thailand 2026" className="h-10 w-10 rounded-xl object-cover shadow-lg ring-2 ring-white/30 sm:h-12 sm:w-12 sm:rounded-2xl"/>
+          <img src={asset('/favicon.png')} alt="Thailand 2026" className="h-9 w-9 rounded-xl object-cover shadow-lg ring-2 ring-white/30 sm:h-12 sm:w-12 sm:rounded-2xl"/>
           <div>
-            <h1 className="font-serif text-xl leading-none sm:text-2xl">Thailand 2026</h1>
+            <h1 className="font-serif text-lg leading-none sm:text-2xl">Thailand 2026</h1>
             <p className="mt-1 text-xs text-emerald-100 sm:text-sm">Jun 3–30 · Chiang Mai → Pai → Doi → Bangkok</p>
           </div>
         </div>
         <nav className="flex gap-2 overflow-x-auto pb-1">
-          {tabs.map(tab => <button key={tab} onClick={()=>setActive(tab)} className={cn('whitespace-nowrap rounded-2xl px-3 py-2 text-xs font-black transition sm:px-4 sm:text-sm', active===tab?'bg-white text-emerald-950 shadow':'bg-white/10 text-white hover:bg-white/20')}>{tab}</button>)}
+          {tabs.map(tab => <button key={tab} onClick={()=>setActive(tab)} className={cn('whitespace-nowrap rounded-2xl px-3 py-1.5 text-[11px] font-black transition sm:px-4 sm:py-2 sm:text-sm', active===tab?'bg-white text-emerald-950 shadow':'bg-white/10 text-white hover:bg-white/20')}>{tab}</button>)}
         </nav>
       </div>
     </div>
@@ -452,7 +463,7 @@ function Header({active,setActive}) {
 }
 
 function Title({title,subtitle}) {
-  return <div><h2 className="font-serif text-3xl text-stone-950">{title}</h2><p className="mt-1 text-sm text-stone-600">{subtitle}</p></div>
+  return <div><h2 className="font-serif text-2xl text-stone-950 sm:text-3xl">{title}</h2><p className="mt-1 text-xs text-stone-600 sm:text-sm">{subtitle}</p></div>
 }
 
 function Stat({label,value}) {
@@ -536,7 +547,7 @@ function PlanTab() {
   return (
     <div className="space-y-5">
       <Title title="Day-by-day plan" subtitle="Tap a region card to see its full day breakdown."/>
-      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+      <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
         {regions.map(r => (
           <RegionPlanCard
             key={r.name}
@@ -555,18 +566,18 @@ function RegionPlanCard({r, isOpen, onToggle, regionDayList}) {
   return (
     <div className={cn('overflow-hidden rounded-[1.5rem] bg-white sm:rounded-[2rem] shadow-sm ring-1 transition-all', isOpen ? 'md:col-span-2 xl:col-span-3 ring-emerald-400' : 'ring-stone-200')}>
       <button className="w-full text-left" onClick={onToggle}>
-        <Visual tone={r.tone} title={`${r.emoji} ${r.name}`} subtitle={r.purpose} className="min-h-[160px] rounded-none"/>
-        <div className="p-4">
+        <Visual tone={r.tone} title={`${r.emoji} ${r.name}`} subtitle={r.purpose} className="min-h-[118px] rounded-none sm:min-h-[160px]"/>
+        <div className="p-3 sm:p-4">
           <div className="flex items-center justify-between gap-2">
             <div className="flex flex-wrap gap-2">
               <Badge tone="blue">{r.dates}</Badge>
               <Badge tone="stone">{r.hotel}</Badge>
             </div>
-            <span className="shrink-0 rounded-full bg-stone-100 px-3 py-1 text-xs font-black text-stone-600">
+            <span className="shrink-0 rounded-full bg-stone-100 px-2.5 py-1 text-[10px] font-black text-stone-600 sm:text-xs">
               {isOpen ? '▲ Close' : '▼ Show days'}
             </span>
           </div>
-          <p className="mt-2 text-sm text-stone-600">{r.why}</p>
+          <p className="mt-2 text-xs leading-relaxed text-stone-600 sm:text-sm">{r.why}</p>
         </div>
       </button>
 
@@ -992,5 +1003,5 @@ export default function App() {
   const [active, setActive] = useState('Dashboard');
   const screens = { Dashboard:Overview, Plan:PlanTab, Route:RouteTab, Hotels:RegionsTab, Food:FoodTab, Docs:DocsTab, Map:MapTab };
   const Screen = useMemo(() => screens[active] || Overview, [active]);
-  return <div className="min-h-screen bg-[#f4efe4] text-stone-900"><Header active={active} setActive={setActive}/><main className="mx-auto max-w-7xl px-3 pb-8 pt-5 sm:px-4 sm:py-6"><Screen/></main></div>
+  return <div className="app-shell min-h-screen bg-[#f4efe4] text-stone-900"><Header active={active} setActive={setActive}/><main className="app-main mx-auto max-w-7xl px-3 pb-8 pt-4 sm:px-4 sm:py-6"><Screen/></main></div>
 }
