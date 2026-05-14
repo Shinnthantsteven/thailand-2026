@@ -12,7 +12,7 @@ const regions = [
   ['Doi Inthanon / Chom Thong','Jun 13–18','Nok Chan Mee Na','🌿','forest','Heart of trip: waterfalls, summit, cloud forest, rural coffee village.','Spend money here because the driver unlocks Mae Ya, summit, Ang Ka, and Mae Klang Luang properly.','Mae Ya Waterfall|Summit|Ang Ka Nature Trail|Mae Klang Luang|Mae Wang bamboo rafting','mountain coffee|simple local lunch|cheap Chom Thong dinner','Use hotel-arranged driver/songthaew. Target Jun 15 + Jun 17 bundle: 3,000–3,500 THB.'],
   ['Mon Jam','Jun 18–20','Mon Jaw Doi at Monjam','⛰️','mountain','Mountain chill only: clouds, cool air, sunset, rest.','Mon Jam should not become another transport headache. It is for enjoying the hotel and mountain view after Doi.','breakfast view|flower gardens if close|hilltop sunset|rest|cheap café only if nearby','included breakfast|simple mountain dinner|coffee if nearby','Ask hotel for shared ride down to Chiang Mai/Nimman. No Sticky Waterfall from here.'],
   ['Nimman / Chiang Mai','Jun 20–27','Nimman Expat Home','🌙','market','Easy ending: markets, rest, food, Mae Kampong.','This is the best base for your final week: rest cheaply, do markets, and take the Mae Kampong join tour.','One Nimman|Wua Lai optional Saturday Night Market|Jing Jai Market|Sunday Walking Street|Mae Kampong village + waterfall','market breakfast|street food snacks|final Khao Soi|Mae Kampong tea/snack','Walk/Bolt in city. Mae Kampong should be a join/shared tour around 800–1,500 THB.'],
-  ['Bangkok','Jun 27–30','Collection O The Spades Hostel','🏙️','market','Final city: temples, Chao Phraya, street food, fly home.','Bangkok is your cool-down. Easy BTS, great cheap food, and 3 nights before flying home to Dubai.','Wat Phra Kaew + Grand Palace|Chao Phraya boat|Wat Arun|Khao San Road|MBK Center|Silom street food','Pad Thai|mango sticky rice|Khao San street food|river café snack','BTS Skytrain/MRT for everything. Airport Rail Link (City Line) cheapest to Suvarnabhumi.'],
+  ['Bangkok','Jun 27–30','Collection O The Spades Hostel','🏙️','market','Final city: shopping, food, and fly home.','Bangkok is your cool-down. Keep it simple: Siam/MBK shopping, easy BTS, cheap food, and rest before flying home to Dubai.','Siam shopping|MBK Center|simple street food|hostel rest|airport day','Pad Thai|mango sticky rice|Siam food court|street food snack','BTS/MRT for city. Airport Rail Link is cheapest to Suvarnabhumi.'],
 ].map(([name,dates,hotel,emoji,tone,purpose,why,doList,foodList,transport]) => ({
   name, dates, hotel, emoji, tone, purpose, why,
   do: doList.split('|'), food: foodList.split('|'), transport,
@@ -325,6 +325,7 @@ const realPhotos = [
   ['Ban Rak Thai|ban-rak-thai-cover', '/photos/ban-rak-thai-cover.jpg'],
   ['Doi Inthanon|Chom Thong|doi-inthanon-cover|Nok Chan Mee Na', '/photos/doi-inthanon-cover.jpg'],
   ['Mon Jam|mon-jam-cover', '/photos/mon-jam-cover.jpg'],
+  ['Bangkok|Bangkok Siam|Siam|MBK|The Spades Hostel|Collection O The Spades', '/photos/bangkok-simple.jpg'],
   ['Nimman|Nimman / Chiang Mai|nimman-cover|Jing Jai|Sunday Walking Street', '/photos/nimman-cover.jpg'],
   ['Wat Pha Lat|Monk Trail', '/photos/wat-pha-lat.jpg'],
   ['Wat Chedi Luang|Wat Phra Singh', '/photos/wat-chedi-luang-night.jpg'],
@@ -421,29 +422,29 @@ function MessageBox({title, text, label, copied, copyText}) {
 function Visual({tone='mountain',title,subtitle,className=''}) {
   const [emoji,bg] = visual[tone] || visual.mountain;
   const photo = asset(realPhotoFor(title, subtitle, tone));
-  return <div className={cn('relative min-h-[180px] overflow-hidden rounded-[2rem] bg-gradient-to-br p-5 text-white shadow-lg', bg, className)}>
+  return <div className={cn('relative min-h-[150px] overflow-hidden rounded-[1.5rem] bg-gradient-to-br p-4 text-white shadow-lg sm:min-h-[180px] sm:rounded-[2rem] sm:p-5', bg, className)}>
     <img src={photo} alt={title} className="absolute inset-0 h-full w-full object-cover" loading="lazy" onError={(e)=>{e.currentTarget.src=asset('/photos/chiangmai-old-cover.jpg')}} />
     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/5"/>
-    <div className="absolute bottom-5 left-5 right-5">
-      <h3 className="mt-1 text-xl font-black leading-tight drop-shadow">{title}</h3>
-      {subtitle && <p className="mt-1 max-w-[85%] text-sm text-white/90">{subtitle}</p>}
+    <div className="absolute bottom-4 left-4 right-4 sm:bottom-5 sm:left-5 sm:right-5">
+      <h3 className="mt-1 text-lg font-black leading-tight drop-shadow sm:text-xl">{title}</h3>
+      {subtitle && <p className="mt-1 max-w-[90%] text-xs leading-snug text-white/90 sm:max-w-[85%] sm:text-sm">{subtitle}</p>}
     </div>
   </div>
 }
 
 function Header({active,setActive}) {
   return <header className="sticky top-0 z-40 border-b border-white/10 bg-emerald-950/95 text-white backdrop-blur">
-    <div className="mx-auto max-w-7xl px-4 py-4">
+    <div className="mx-auto max-w-7xl px-3 py-3 sm:px-4 sm:py-4">
       <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
         <div className="flex items-center gap-3">
-          <img src={asset('/favicon.png')} alt="Thailand 2026" className="h-12 w-12 rounded-2xl object-cover shadow-lg ring-2 ring-white/30"/>
+          <img src={asset('/favicon.png')} alt="Thailand 2026" className="h-10 w-10 rounded-xl object-cover shadow-lg ring-2 ring-white/30 sm:h-12 sm:w-12 sm:rounded-2xl"/>
           <div>
-            <h1 className="font-serif text-2xl leading-none">Thailand 2026</h1>
-            <p className="mt-1 text-sm text-emerald-100">Jun 3–30 · Chiang Mai → Pai → Doi → Bangkok</p>
+            <h1 className="font-serif text-xl leading-none sm:text-2xl">Thailand 2026</h1>
+            <p className="mt-1 text-xs text-emerald-100 sm:text-sm">Jun 3–30 · Chiang Mai → Pai → Doi → Bangkok</p>
           </div>
         </div>
         <nav className="flex gap-2 overflow-x-auto pb-1">
-          {tabs.map(tab => <button key={tab} onClick={()=>setActive(tab)} className={cn('whitespace-nowrap rounded-2xl px-4 py-2 text-sm font-black transition', active===tab?'bg-white text-emerald-950 shadow':'bg-white/10 text-white hover:bg-white/20')}>{tab}</button>)}
+          {tabs.map(tab => <button key={tab} onClick={()=>setActive(tab)} className={cn('whitespace-nowrap rounded-2xl px-3 py-2 text-xs font-black transition sm:px-4 sm:text-sm', active===tab?'bg-white text-emerald-950 shadow':'bg-white/10 text-white hover:bg-white/20')}>{tab}</button>)}
         </nav>
       </div>
     </div>
@@ -455,7 +456,7 @@ function Title({title,subtitle}) {
 }
 
 function Stat({label,value}) {
-  return <div className="rounded-[2rem] bg-white p-4 shadow-sm ring-1 ring-stone-200"><p className="text-xs font-black uppercase tracking-[0.2em] text-stone-500">{label}</p><p className="mt-1 text-2xl font-black text-emerald-950">{value}</p></div>
+  return <div className="rounded-[1.5rem] bg-white sm:rounded-[2rem] p-4 shadow-sm ring-1 ring-stone-200"><p className="text-xs font-black uppercase tracking-[0.2em] text-stone-500">{label}</p><p className="mt-1 text-2xl font-black text-emerald-950">{value}</p></div>
 }
 
 function Overview() {
@@ -488,7 +489,7 @@ function Overview() {
       <Stat label="Free cash" value={`AED ${remaining.toLocaleString()}`}/>
       <Stat label="Trip start" value="Jun 3"/>
     </section>
-    <section className="rounded-[2rem] bg-white p-5 shadow-sm ring-1 ring-stone-200">
+    <section className="rounded-[1.5rem] bg-white sm:rounded-[2rem] p-5 shadow-sm ring-1 ring-stone-200">
       <div className="flex items-center justify-between gap-4">
         <div><h3 className="font-serif text-2xl text-stone-950">Budget tracker</h3><p className="text-sm text-stone-500">Target 4,000 AED. Booked + upcoming vs remaining.</p></div>
         <Badge tone="amber">{pct}% allocated</Badge>
@@ -518,7 +519,7 @@ function WeatherWidget() {
 }
 
 function RegionMini({r}) {
-  return <div className="overflow-hidden rounded-[2rem] bg-white shadow-sm ring-1 ring-stone-200">
+  return <div className="overflow-hidden rounded-[1.5rem] bg-white sm:rounded-[2rem] shadow-sm ring-1 ring-stone-200">
     <Visual tone={r.tone} title={`${r.emoji} ${r.name}`} subtitle={r.purpose} className="min-h-[170px] rounded-none"/>
     <div className="p-5">
       <div className="flex flex-wrap gap-2"><Badge tone="blue">{r.dates}</Badge><Badge>{r.hotel}</Badge></div>
@@ -552,7 +553,7 @@ function PlanTab() {
 
 function RegionPlanCard({r, isOpen, onToggle, regionDayList}) {
   return (
-    <div className={cn('overflow-hidden rounded-[2rem] bg-white shadow-sm ring-1 transition-all', isOpen ? 'md:col-span-2 xl:col-span-3 ring-emerald-400' : 'ring-stone-200')}>
+    <div className={cn('overflow-hidden rounded-[1.5rem] bg-white sm:rounded-[2rem] shadow-sm ring-1 transition-all', isOpen ? 'md:col-span-2 xl:col-span-3 ring-emerald-400' : 'ring-stone-200')}>
       <button className="w-full text-left" onClick={onToggle}>
         <Visual tone={r.tone} title={`${r.emoji} ${r.name}`} subtitle={r.purpose} className="min-h-[160px] rounded-none"/>
         <div className="p-4">
@@ -709,7 +710,7 @@ function RouteTab() {
 
         {/* Detail panel */}
         <section className="space-y-4">
-          <article className="overflow-hidden rounded-[2rem] bg-white shadow-sm ring-1 ring-stone-200">
+          <article className="overflow-hidden rounded-[1.5rem] bg-white sm:rounded-[2rem] shadow-sm ring-1 ring-stone-200">
             <Visual tone={active.tone} title={active.title} subtitle={active.subtitle} className="min-h-[185px] rounded-none sm:min-h-[220px]"/>
             <div className="p-4 sm:p-5 space-y-4">
               <div className="flex flex-wrap gap-2">
@@ -795,7 +796,7 @@ function RouteTab() {
 
 function RegionsTab() {
   return <div className="space-y-5"><Title title="Region overview" subtitle="Each region has one job. Activities, food, and transport rule at a glance."/>
-  {regions.map(r => <article key={r.name} className="grid overflow-hidden rounded-[2rem] bg-white shadow-sm ring-1 ring-stone-200 lg:grid-cols-[360px_1fr]">
+  {regions.map(r => <article key={r.name} className="grid overflow-hidden rounded-[1.5rem] bg-white sm:rounded-[2rem] shadow-sm ring-1 ring-stone-200 lg:grid-cols-[360px_1fr]">
     <Visual tone={r.tone} title={`${r.emoji} ${r.name}`} subtitle={r.purpose} className="h-full min-h-[300px] rounded-none"/>
     <div className="p-6">
       <div className="flex flex-wrap gap-2"><Badge tone="blue">{r.dates}</Badge><Badge>{r.hotel}</Badge></div>
@@ -823,14 +824,14 @@ function FoodTab() {
     <div className="flex gap-2 overflow-x-auto pb-1">{filters.map(f=><button key={f} onClick={()=>setFilter(f)} className={cn('rounded-2xl px-4 py-2 text-sm font-black', filter===f?'bg-emerald-950 text-white':'bg-white text-stone-700 ring-1 ring-stone-200')}>{f}</button>)}</div>
     <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">{list.map(d=><FoodCard key={d.name} dish={d}/>)}</div>
     <div className="grid gap-4 lg:grid-cols-2">
-      <div className="rounded-[2rem] bg-white p-5 ring-1 ring-stone-200"><h3 className="font-serif text-2xl">Safe cheap foods</h3><div className="mt-3 flex flex-wrap gap-2">{alwaysSafe.map(x=><Badge key={x} tone="green">{x}</Badge>)}</div></div>
-      <div className="rounded-[2rem] bg-white p-5 ring-1 ring-stone-200"><h3 className="font-serif text-2xl">Thai phrases</h3><div className="mt-3 grid gap-2">{phrases.map(p=><div key={p.thai} className="rounded-2xl bg-stone-50 p-3 text-sm"><b>{p.pronunciation}</b> — {p.meaning} <span className="text-stone-400">({p.thai})</span></div>)}</div></div>
+      <div className="rounded-[1.5rem] bg-white sm:rounded-[2rem] p-5 ring-1 ring-stone-200"><h3 className="font-serif text-2xl">Safe cheap foods</h3><div className="mt-3 flex flex-wrap gap-2">{alwaysSafe.map(x=><Badge key={x} tone="green">{x}</Badge>)}</div></div>
+      <div className="rounded-[1.5rem] bg-white sm:rounded-[2rem] p-5 ring-1 ring-stone-200"><h3 className="font-serif text-2xl">Thai phrases</h3><div className="mt-3 grid gap-2">{phrases.map(p=><div key={p.thai} className="rounded-2xl bg-stone-50 p-3 text-sm"><b>{p.pronunciation}</b> — {p.meaning} <span className="text-stone-400">({p.thai})</span></div>)}</div></div>
     </div>
   </div>
 }
 
 function FoodCard({dish}) {
-  return <div className="overflow-hidden rounded-[2rem] bg-white shadow-sm ring-1 ring-stone-200">
+  return <div className="overflow-hidden rounded-[1.5rem] bg-white sm:rounded-[2rem] shadow-sm ring-1 ring-stone-200">
     <div className="relative h-48 overflow-hidden bg-gradient-to-br from-amber-700 to-orange-300">
       <img src={dish.photoUrl || asset(realPhotoFor(dish.name, dish.region, 'food'))} alt={dish.name} className="h-full w-full object-cover" loading="lazy"/>
       <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent"/>
@@ -850,19 +851,19 @@ function BudgetTab() {
   return <div className="space-y-5"><Title title="Budget system" subtitle="Expensive extras cut. Heart-of-trip days protected."/>
     <div className="grid gap-4 md:grid-cols-3"><Stat label="Total" value={budget.total}/><Stat label="Hotels" value={budget.hotels}/><Stat label="Remaining" value={budget.remaining}/></div>
     <div className="grid gap-4 lg:grid-cols-2">
-      <div className="rounded-[2rem] bg-white p-5 ring-1 ring-stone-200"><h3 className="font-serif text-2xl">Remaining split</h3>{budget.split.map(([a,b,c])=><div key={a} className="mt-3 rounded-2xl bg-stone-50 p-3"><div className="flex justify-between gap-4"><b>{a}</b><b className="text-emerald-800">{b}</b></div><p className="text-sm text-stone-600">{c}</p></div>)}</div>
-      <div className="rounded-[2rem] bg-white p-5 ring-1 ring-stone-200"><h3 className="font-serif text-2xl">Final rules</h3><ol className="mt-3 space-y-2">{rules.map((r,i)=><li key={r} className="rounded-2xl bg-stone-50 p-3 text-sm"><b>{i+1}.</b> {r}</li>)}</ol></div>
+      <div className="rounded-[1.5rem] bg-white sm:rounded-[2rem] p-5 ring-1 ring-stone-200"><h3 className="font-serif text-2xl">Remaining split</h3>{budget.split.map(([a,b,c])=><div key={a} className="mt-3 rounded-2xl bg-stone-50 p-3"><div className="flex justify-between gap-4"><b>{a}</b><b className="text-emerald-800">{b}</b></div><p className="text-sm text-stone-600">{c}</p></div>)}</div>
+      <div className="rounded-[1.5rem] bg-white sm:rounded-[2rem] p-5 ring-1 ring-stone-200"><h3 className="font-serif text-2xl">Final rules</h3><ol className="mt-3 space-y-2">{rules.map((r,i)=><li key={r} className="rounded-2xl bg-stone-50 p-3 text-sm"><b>{i+1}.</b> {r}</li>)}</ol></div>
     </div>
     <div className="grid gap-4 lg:grid-cols-2"><ListPanel title="Protect" items={budget.protect} tone="green"/><ListPanel title="Cut" items={budget.cuts} tone="red"/></div>
   </div>
 }
 
 function ListPanel({title,items,tone}) {
-  return <div className="rounded-[2rem] bg-white p-5 ring-1 ring-stone-200"><h3 className="font-serif text-2xl">{title}</h3><div className="mt-3 flex flex-wrap gap-2">{items.map(x=><Badge key={x} tone={tone}>{x}</Badge>)}</div></div>
+  return <div className="rounded-[1.5rem] bg-white sm:rounded-[2rem] p-5 ring-1 ring-stone-200"><h3 className="font-serif text-2xl">{title}</h3><div className="mt-3 flex flex-wrap gap-2">{items.map(x=><Badge key={x} tone={tone}>{x}</Badge>)}</div></div>
 }
 
 function HotelsTab() {
-  return <div className="space-y-5"><Title title="Hotels" subtitle="All bases, their purpose, and quick map links."/><div className="grid gap-4 md:grid-cols-2">{hotels.map(h=><div key={h.name} className="rounded-[2rem] bg-white p-5 shadow-sm ring-1 ring-stone-200"><div className="flex flex-wrap gap-2"><Badge tone="blue">{h.dates}</Badge><Badge tone="amber">{h.cost}</Badge></div><h3 className="mt-3 font-serif text-2xl text-stone-950">{h.name}</h3><p className="font-black text-emerald-800">{h.area}</p><p className="mt-2 text-sm text-stone-600">{h.note}</p><div className="mt-4"><MapButton url={mapSearch(`${h.name} ${h.area} Thailand`)} label="Hotel map"/></div></div>)}</div></div>
+  return <div className="space-y-5"><Title title="Hotels" subtitle="All bases, their purpose, and quick map links."/><div className="grid gap-4 md:grid-cols-2">{hotels.map(h=><div key={h.name} className="rounded-[1.5rem] bg-white sm:rounded-[2rem] p-5 shadow-sm ring-1 ring-stone-200"><div className="flex flex-wrap gap-2"><Badge tone="blue">{h.dates}</Badge><Badge tone="amber">{h.cost}</Badge></div><h3 className="mt-3 font-serif text-2xl text-stone-950">{h.name}</h3><p className="font-black text-emerald-800">{h.area}</p><p className="mt-2 text-sm text-stone-600">{h.note}</p><div className="mt-4"><MapButton url={mapSearch(`${h.name} ${h.area} Thailand`)} label="Hotel map"/></div></div>)}</div></div>
 }
 
 function MapTab() {
@@ -879,9 +880,9 @@ function MapTab() {
     ['🏙️','Bangkok Siam','Jun 27–30 · final city'],
   ];
   return <div className="space-y-5"><Title title="Map pointers" subtitle="All important regions with Google Maps buttons."/>
-    <div className="overflow-hidden rounded-[2rem] bg-white shadow-sm ring-1 ring-stone-200"><iframe title="Thailand route map" src="https://maps.google.com/maps?q=Chiang%20Mai%20Thailand&z=7&output=embed" className="h-[420px] w-full border-0" loading="lazy"/></div>
-    <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">{points.map(([emoji,name,desc])=><div key={name} className="rounded-[2rem] bg-white p-5 shadow-sm ring-1 ring-stone-200"><div className="text-3xl">{emoji}</div><h3 className="mt-2 font-serif text-2xl text-stone-950">{name}</h3><p className="mt-1 text-sm text-stone-600">{desc}</p><div className="mt-4"><MapButton url={mapSearch(name + ' Thailand')} label="Open map"/></div></div>)}</div>
-    <div className="grid gap-4 lg:grid-cols-2">{routeLegs.map(leg=><div key={leg.date+leg.to} className="rounded-[2rem] bg-white p-5 ring-1 ring-stone-200"><div className="flex flex-wrap items-center justify-between gap-3"><h3 className="font-serif text-xl text-stone-950">{leg.date}: {leg.from} → {leg.to}</h3><Badge tone="amber">{leg.cost}</Badge></div><p className="mt-2 text-sm text-stone-600">{leg.mode} · {leg.time}. {leg.note}</p><div className="mt-4"><MapButton url={leg.url} label="Directions"/></div></div>)}</div>
+    <div className="overflow-hidden rounded-[1.5rem] bg-white sm:rounded-[2rem] shadow-sm ring-1 ring-stone-200"><iframe title="Thailand route map" src="https://maps.google.com/maps?q=Chiang%20Mai%20Thailand&z=7&output=embed" className="h-[420px] w-full border-0" loading="lazy"/></div>
+    <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">{points.map(([emoji,name,desc])=><div key={name} className="rounded-[1.5rem] bg-white sm:rounded-[2rem] p-5 shadow-sm ring-1 ring-stone-200"><div className="text-3xl">{emoji}</div><h3 className="mt-2 font-serif text-2xl text-stone-950">{name}</h3><p className="mt-1 text-sm text-stone-600">{desc}</p><div className="mt-4"><MapButton url={mapSearch(name + ' Thailand')} label="Open map"/></div></div>)}</div>
+    <div className="grid gap-4 lg:grid-cols-2">{routeLegs.map(leg=><div key={leg.date+leg.to} className="rounded-[1.5rem] bg-white sm:rounded-[2rem] p-5 ring-1 ring-stone-200"><div className="flex flex-wrap items-center justify-between gap-3"><h3 className="font-serif text-xl text-stone-950">{leg.date}: {leg.from} → {leg.to}</h3><Badge tone="amber">{leg.cost}</Badge></div><p className="mt-2 text-sm text-stone-600">{leg.mode} · {leg.time}. {leg.note}</p><div className="mt-4"><MapButton url={leg.url} label="Directions"/></div></div>)}</div>
   </div>
 }
 
@@ -928,7 +929,7 @@ function DocsTab() {
       <Title title="Trip Documents" subtitle="Visa, flights, hotels, and payment deadlines all in one place."/>
       <section>
         <h3 className="mb-3 font-serif text-2xl text-stone-950">🛂 Thai e-Visa</h3>
-        <div className="rounded-[2rem] bg-white p-5 ring-1 ring-stone-200">
+        <div className="rounded-[1.5rem] bg-white sm:rounded-[2rem] p-5 ring-1 ring-stone-200">
           <div className="flex flex-wrap gap-2 mb-4"><Badge tone="green">{docVisa.type}</Badge><Badge tone="blue">Visa #{docVisa.number}</Badge><Badge tone="stone">Valid until {docVisa.validUntil}</Badge></div>
           <div className="grid gap-2 text-sm md:grid-cols-2">
             {[['Passport',docVisa.passport],['Issued',docVisa.issued],['Valid From',docVisa.validFrom],['Transaction Ref',docVisa.ref]].map(([label,val])=>
@@ -941,7 +942,7 @@ function DocsTab() {
         <h3 className="mb-3 font-serif text-2xl text-stone-950">✈️ Flights</h3>
         <div className="grid gap-4 lg:grid-cols-2">
           {docFlights.map(f=>(
-            <div key={f.leg} className="rounded-[2rem] bg-white p-5 ring-1 ring-stone-200">
+            <div key={f.leg} className="rounded-[1.5rem] bg-white sm:rounded-[2rem] p-5 ring-1 ring-stone-200">
               <div className="flex flex-wrap gap-2 mb-3"><Badge tone={f.tone}>{f.date}</Badge><Badge tone="stone">Ref: {f.ref}</Badge></div>
               <h4 className="font-black text-lg text-stone-950">{f.leg}</h4>
               <div className="mt-3 grid gap-2 text-sm">
@@ -955,7 +956,7 @@ function DocsTab() {
       </section>
       <section>
         <h3 className="mb-3 font-serif text-2xl text-stone-950">💳 Payment Deadlines</h3>
-        <div className="rounded-[2rem] bg-white p-5 ring-1 ring-stone-200 space-y-3">
+        <div className="rounded-[1.5rem] bg-white sm:rounded-[2rem] p-5 ring-1 ring-stone-200 space-y-3">
           {paymentTimeline.map(p=>(
             <div key={p.date+p.what} className="grid grid-cols-[80px_1fr_auto] items-center gap-3 rounded-2xl bg-stone-50 p-3 text-sm">
               <span className="font-black text-emerald-800">{p.date}</span>
@@ -969,7 +970,7 @@ function DocsTab() {
         <h3 className="mb-3 font-serif text-2xl text-stone-950">🏨 Hotels & Bookings</h3>
         <div className="grid gap-4 lg:grid-cols-2">
           {docHotels.map(h=>(
-            <div key={h.bookingId} className="rounded-[2rem] bg-white p-5 ring-1 ring-stone-200">
+            <div key={h.bookingId} className="rounded-[1.5rem] bg-white sm:rounded-[2rem] p-5 ring-1 ring-stone-200">
               <div className="flex flex-wrap gap-2 mb-3"><Badge tone="blue">{h.dates}</Badge><Badge tone={h.tone}>{h.status}</Badge></div>
               <h4 className="font-black text-stone-950">{h.name}</h4>
               <p className="text-sm text-emerald-800 font-black mb-3">{h.area}</p>
@@ -991,5 +992,5 @@ export default function App() {
   const [active, setActive] = useState('Dashboard');
   const screens = { Dashboard:Overview, Plan:PlanTab, Route:RouteTab, Hotels:RegionsTab, Food:FoodTab, Docs:DocsTab, Map:MapTab };
   const Screen = useMemo(() => screens[active] || Overview, [active]);
-  return <div className="min-h-screen bg-[#f4efe4] text-stone-900"><Header active={active} setActive={setActive}/><main className="mx-auto max-w-7xl px-4 py-6"><Screen/></main></div>
+  return <div className="min-h-screen bg-[#f4efe4] text-stone-900"><Header active={active} setActive={setActive}/><main className="mx-auto max-w-7xl px-3 pb-8 pt-5 sm:px-4 sm:py-6"><Screen/></main></div>
 }
