@@ -1,20 +1,48 @@
 {
-  "name": "Thailand 2026",
-  "short_name": "Thailand",
-  "description": "24-night Northern Thailand travel guide — Jun 2–26 2026 · Chiang Mai · Pai · Ban Rak Thai · Doi Inthanon",
+  "name": "Thailand 2026 Offline Trip Plan",
+  "short_name": "Thailand 2026",
+  "description": "Offline-ready Northern Thailand travel plan — Chiang Mai, Pai, Ban Rak Thai, Doi Inthanon, Mon Jam, Mae Kampong and Bangkok.",
   "start_url": ".",
+  "scope": ".",
+  "id": "thailand-2026-offline",
   "display": "standalone",
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
   "orientation": "portrait",
-  "background_color": "#3B6D11",
-  "theme_color": "#3B6D11",
+  "background_color": "#f4eddf",
+  "theme_color": "#064234",
   "icons": [
+    {
+      "src": "favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
     {
       "src": "favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"
+    },
+    {
+      "src": "favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
-  "categories": ["travel", "lifestyle"],
+  "categories": [
+    "travel",
+    "lifestyle",
+    "navigation"
+  ],
   "lang": "en"
 }
