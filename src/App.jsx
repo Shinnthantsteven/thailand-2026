@@ -33,7 +33,7 @@ const regionDays = {
 const routeLegs = [
   ['Jun 5','Chiang Mai Old City','Pai','Shared minivan','250–400 THB','3–4 hrs','Take motion sickness tablet first. Sit front if possible.'],
   ['Jun 9','Pai','Ban Rak Thai','Van + local songthaew/taxi','480–800 THB','4–5 hrs','Pai → Mae Hong Son by van, then local ride to Ban Rak Thai.'],
-  ['Jun 13','Ban Rak Thai','Nok Chan Mee Na / Chom Thong','4-leg budget transfer','1,000–1,800 THB','full day','Hardest travel day. Start 7 AM. No activities.'],
+  ['Jun 13','Ban Rak Thai','Nok Chan Mee Na / Chom Thong','Public-transfer chain','900–1,600 THB','full day','Hardest travel day. Ban Rak Thai → Mae Hong Son Bus Terminal → Chiang Mai Arcade → Chang Phueak → Chom Thong → hotel. Start early.'],
   ['Jun 15','Nok Chan Mee Na','Doi Inthanon loop','Private local driver/songthaew','bundle 3,000–3,500 THB','7 AM–5 PM','Mae Ya → Summit → Ang Ka → Mae Klang Luang. Driver waits.'],
   ['Jun 18','Chom Thong / Nok Chan Mee Na','Mon Jam','Local transfer via Chiang Mai','900–1,600 THB','half/full day','Budget route: hotel → Chom Thong → Chiang Mai → Mon Jam.'],
   ['Jun 20','Mon Jam','Nimman','Shared ride first','150–800 THB','1–2 hrs','Ask hotel first. Backup: Mon Jam → Mae Rim → Nimman.'],
@@ -180,21 +180,22 @@ const routePlansV5 = [
     subtitle:'Hardest transfer day, no activities', tone:'transfer',
     cost:'1,000–1,800 THB', time:'Full day', photo:'/photos/route-ban-rak-thai-to-doi.png',
     steps:[
-      ['Jun 13 · 07:00','Malee Guesthouse / Ban Rak Thai','Mae Hong Son town','Local taxi/songthaew','1–1.5 hrs','300–500 THB'],
-      ['Jun 13 · 09:00','Mae Hong Son town','Chiang Mai','Shared van/bus','5–6 hrs','250–500 THB'],
-      ['Jun 13 · 15:30','Chiang Mai','Chom Thong','Local van/songthaew/bus','1.5–2 hrs','35–150 THB'],
-      ['Jun 13 · 18:00','Chom Thong','Nok Chan Mee Na','Local taxi/songthaew','20–40 min','150–400 THB'],
+      ['Jun 13 · 06:00–06:30','Malee Guesthouse / Ban Rak Thai','Mae Hong Son Bus Terminal','Hotel taxi/local songthaew','1–1.5 hrs','300–500 THB'],
+      ['Jun 13 · 07:00–08:00','Mae Hong Son Bus Terminal','Chiang Mai Arcade Bus Terminal 2','Prem Pracha van/bus','6 hrs','320–500 THB'],
+      ['Jun 13 · 13:00–14:30','Chiang Mai Arcade','Chang Phueak Bus Terminal','Grab/Bolt/red songthaew','15–25 min','80–180 THB'],
+      ['Jun 13 · before 16:00','Chang Phueak Bus Terminal','Chom Thong / Wat Phra That Si Chom Thong','Yellow songthaew/local bus','1h20–2 hrs','20–35 THB'],
+      ['Jun 13 · evening','Chom Thong','Nok Chan Mee Na','Hotel pickup/local taxi/songthaew','20–40 min','150–400 THB'],
       ['Jun 13 · 19:00–21:00','Nok Chan Mee Na','Late check-in, eat, sleep','Rest','night','food only'],
     ],
     days:[
-      ['Jun 13','Leave Ban Rak Thai 7 AM. Goal is only to reach Nok Chan Mee Na, eat, and sleep. No sightseeing.'],
+      ['Jun 13','Leave Ban Rak Thai before 6:30 AM if possible. First target is Mae Hong Son Bus Terminal for the earliest Prem Pracha van. Goal is only to reach Nok Chan Mee Na, eat, and sleep. No sightseeing.'],
     ],
     places:[
       ['Nok Chan Mee Na / Doi base','/photos/nok-chan-mee-na-rice-field.jpg','Arrive and rest — no activities today.'],
     ],
-    save:'Ask Malee Guesthouse to arrange first leg night before. Keep cash and snacks. Message Nok Chan Mee Na about late check-in.',
-    english:'Hello, on June 13 I need to travel from Ban Rak Thai / Malee Guesthouse to Nok Chan Mee Na near Chom Thong. I want a budget route, not sightseeing. Can you help arrange the first ride to Mae Hong Son town early morning? I need to continue to Chiang Mai, then Chom Thong, then Nok Chan Mee Na. Please tell me the best departure time and price.',
-    thai:'สวัสดีครับ วันที่ 13 มิถุนายน ผมต้องการเดินทางจากบ้านรักไทย / Malee Guesthouse ไปที่พัก Nok Chan Mee Na แถวจอมทอง ผมต้องการเส้นทางประหยัด ไม่แวะเที่ยว รบกวนช่วยจัดรถช่วงแรกไปตัวเมืองแม่ฮ่องสอนตอนเช้าได้ไหมครับ จากนั้นผมจะต่อไปเชียงใหม่ ต่อไปจอมทอง และไป Nok Chan Mee Na รบกวนแจ้งเวลาออกเดินทางที่ดีที่สุดและราคาด้วยครับ',
+    save:'Ask Malee Guesthouse to arrange the 6:00–6:30 AM ride to Mae Hong Son Bus Terminal. Book/confirm Prem Pracha early van if possible. Keep cash/snacks. Message Nok Chan Mee Na about late check-in.',
+    english:'Hello, on June 13 I need to travel from Ban Rak Thai / Malee Guesthouse to Nok Chan Mee Na near Chom Thong. I want a budget route, not sightseeing. Can you help arrange the first ride to Mae Hong Son Bus Terminal very early, around 6:00–6:30 AM? I need to catch the Prem Pracha van/bus to Chiang Mai, then continue to Chang Phueak Bus Terminal, Chom Thong, and Nok Chan Mee Na. Please tell me the best departure time and price.',
+    thai:'สวัสดีครับ วันที่ 13 มิถุนายน ผมต้องการเดินทางจากบ้านรักไทย / Malee Guesthouse ไปที่พัก Nok Chan Mee Na แถวจอมทอง ผมต้องการเส้นทางประหยัด ไม่แวะเที่ยว รบกวนช่วยจัดรถช่วงแรกไปสถานีขนส่งแม่ฮ่องสอนตอนเช้ามาก ประมาณ 6:00–6:30 ได้ไหมครับ จากนั้นผมจะต่อรถ Prem Pracha ไปเชียงใหม่ ไปสถานีช้างเผือก ต่อไปจอมทอง และไป Nok Chan Mee Na รบกวนแจ้งเวลาออกเดินทางที่ดีที่สุดและราคาด้วยครับ',
   },
   {
     id:'doi-heart', date:'Jun 15', title:'Doi Inthanon heart route',
@@ -228,8 +229,8 @@ const routePlansV5 = [
     cost:'900–1,600 THB', time:'Half/full day', photo:'/photos/route-doi-to-mon-jam.png',
     steps:[
       ['Jun 18 · 09:00','Nok Chan Mee Na','Chom Thong','Local taxi/songthaew','20–40 min','150–400 THB'],
-      ['Jun 18 · 10:00','Chom Thong','Chiang Mai','Local bus/van/songthaew','1.5–2 hrs','35–150 THB'],
-      ['Jun 18 · 12:30','Chiang Mai','Mae Rim / Mon Jam road','Shared songthaew/local ride','1–1.5 hrs','150–500 THB'],
+      ['Jun 18 · 10:00','Chom Thong / Wat Phra That Si Chom Thong','Chang Phueak Bus Terminal, Chiang Mai','Yellow songthaew/local bus','1h20–2 hrs','20–35 THB'],
+      ['Jun 18 · 12:30','Chang Phueak / Chiang Mai','Mae Rim / Mon Jam road','Mae Rim songthaew + local taxi uphill','1–1.5 hrs','150–500 THB'],
       ['Jun 18 · 14:00','Mon Jam area','Mon Jaw Doi at Monjam','Local drop','10–20 min','included/extra'],
     ],
     days:[
@@ -238,8 +239,8 @@ const routePlansV5 = [
     places:[
       ['Mon Jam mountain view','/photos/mon-jam-cover.jpg','Arrive, rest, sunset, clouds.'],
     ],
-    save:'Ask Nok Chan Mee Na first. Avoid expensive private car if shared route via Chom Thong → Chiang Mai → Mon Jam is possible.',
-    english:'Hello, on June 18 I need to go from Nok Chan Mee Na / Chom Thong to Mon Jaw Doi at Monjam. I want the cheapest possible option. Is there a shared songthaew, local van, or split route via Chiang Mai / Mae Rim? Please tell me the time, price, and pickup point.',
+    save:'Ask Nok Chan Mee Na first for Chom Thong drop-off. Cheap backbone is Chom Thong → Chang Phueak by yellow songthaew, then Mae Rim/Mon Jam local ride. Avoid expensive private car unless no shared option works.',
+    english:'Hello, on June 18 I need to go from Nok Chan Mee Na / Chom Thong to Mon Jaw Doi at Monjam. I want the cheapest possible option. Can you drop me at the Chom Thong yellow songthaew/bus point for Chiang Mai, or help with a shared route via Chang Phueak / Mae Rim? Please tell me the time, price, and pickup point.',
     thai:'สวัสดีครับ วันที่ 18 มิถุนายน ผมต้องการเดินทางจาก Nok Chan Mee Na / จอมทอง ไป Mon Jaw Doi at Monjam ผมต้องการวิธีที่ประหยัดที่สุด มีรถสองแถวร่วม รถตู้ท้องถิ่น หรือเส้นทางต่อรถผ่านเชียงใหม่ / แม่ริมไหมครับ รบกวนแจ้งเวลา ราคา และจุดขึ้นรถด้วยครับ',
   },
   {

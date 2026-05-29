@@ -1,12 +1,12 @@
 /* Thailand 2026 offline cache service worker */
-const CACHE_NAME = 'thailand-2026-offline-v6-safe-weather-v1';
+const CACHE_NAME = 'thailand-2026-offline-v7-transport-fixed';
 const PRECACHE_URLS = [
   "./",
   "./index.html",
   "./manifest.json",
   "./apple-touch-icon.png",
   "./assets/index-CF_h_CKU.css",
-  "./assets/index-DEgF3adn.js",
+  "./assets/index-BLDkRW3W.js",
   "./favicon-16x16.png",
   "./favicon-32x32.png",
   "./favicon.ico",

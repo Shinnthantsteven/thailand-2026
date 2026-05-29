@@ -167,9 +167,11 @@ export const regions = [
         date: 'June 13 · Saturday · Travel south to Doi Inthanon',
         activities: [
           { time: '6:00am', name: 'Final lake sunrise walk', note: 'Last morning here.', cost: 'Free', tag: 'free', photoUrl: P.BRT_LAKE },
-          { time: '12:00pm', name: 'Check out Malee Guesthouse', note: '—', cost: '—', tag: '' },
-          { time: '12:30pm', name: 'Private driver south to Chom Thong', note: '5–7 hrs. Mountain roads. Message Nok Chan Mee Na "arriving 7pm June 13".', cost: '฿500–700', tag: 'transport' },
-          { time: '7:00pm', name: 'Arrive Chom Thong · Eat · Sleep early', note: 'Big park day soon. Rest well.', cost: '—', tag: '' },
+          { time: '6:00am', name: 'Hotel taxi/songthaew to Mae Hong Son Bus Terminal', note: 'Arrange with Malee the night before. This is the key first move.', cost: '฿300–500', tag: 'transport' },
+          { time: '7:00–8:00am', name: 'Prem Pracha Mae Hong Son → Chiang Mai Arcade', note: 'Use Mae Hong Son Bus Terminal. Earliest van is safest. Around 6 hours.', cost: '฿320–500', tag: 'transport' },
+          { time: '1:00–2:30pm', name: 'Arcade → Chang Phueak Bus Terminal', note: 'Use Bolt/Grab/red songthaew. Move fast; do not wait in Chiang Mai.', cost: '฿80–180', tag: 'transport' },
+          { time: 'Before 4:00pm', name: 'Yellow songthaew Chang Phueak → Chom Thong', note: 'Cheap backbone route. Ask for Wat Phra That Si Chom Thong / Chom Thong.', cost: '฿20–35', tag: 'transport' },
+          { time: 'Evening', name: 'Chom Thong → Nok Chan Mee Na', note: 'Hotel pickup/local taxi/songthaew. Message hotel for late check-in.', cost: '฿150–400', tag: 'transport' },
         ],
       },
     ],
@@ -182,7 +184,7 @@ export const regions = [
     checkIn: 'Jun 13 (arrive ~7pm)',
     checkOut: 'Jun 18 noon',
     hotel: 'Nok Chan Mee Na · Ban Luang, Chom Thong ✅ BOOKED',
-    transport: 'Hire park driver at Chom Thong market ฿900–1,200/full day',
+    transport: 'Chom Thong yellow songthaew for city transfer; hire local driver only for Doi Inthanon park day',
     photoUrl: P.MAE_YA,
     gradient: 'linear-gradient(135deg,#27500A,#639922)',
     days: [
@@ -221,8 +223,9 @@ export const regions = [
       {
         date: 'June 18 · Thursday · Travel to Mon Jam',
         activities: [
-          { time: '12:00pm', name: 'Check out Nok Chan Mee Na', note: '—', cost: '—', tag: '' },
-          { time: '12:30pm', name: 'Drive north to Mon Jam (Mae Rim area)', note: '~2.5 hrs via Chiang Mai. Mountain road. Arrive ~3pm.', cost: '฿300–500', tag: 'transport' },
+          { time: '9:00am', name: 'Nok Chan Mee Na → Chom Thong', note: 'Hotel drop/local taxi to the yellow songthaew point.', cost: '฿150–400', tag: 'transport' },
+          { time: '10:00am', name: 'Chom Thong → Chang Phueak Bus Terminal', note: 'Yellow songthaew/local bus back to Chiang Mai.', cost: '฿20–35', tag: 'transport' },
+          { time: '12:30pm', name: 'Chiang Mai / Mae Rim → Mon Jam', note: 'Shared songthaew if available; local taxi uphill if needed.', cost: '฿150–1,000', tag: 'transport' },
           { time: '3:00pm', name: 'Check in Mon Jaw Doi at Monjam', note: 'Double Room with Private Bathroom · Breakfast included ✅', cost: '—', tag: '' },
           { time: 'Afternoon', name: 'Mon Jam gardens · flowers · clouds', note: 'Walk the hilltop. Breathe the cool mountain air. Enjoy the view.', cost: 'Free', tag: 'free', photoUrl: P.CM_HILL },
         ],
@@ -237,7 +240,7 @@ export const regions = [
     checkIn: 'Jun 18 (arrive ~3pm)',
     checkOut: 'Jun 20 noon',
     hotel: 'Mon Jaw Doi at Monjam · Mae Rim · 8.3 Excellent ✅ BOOKED',
-    transport: 'Local driver · ~30 min to Sticky Waterfall · ~20 min to Huay Tung Tao',
+    transport: 'Hotel/shared ride down to Mae Rim or Chiang Mai; Mon Jam is mainly for rest, not side trips',
     photoUrl: P.CM_HILL,
     gradient: 'linear-gradient(135deg,#2D6A4F,#74C69D)',
     days: [

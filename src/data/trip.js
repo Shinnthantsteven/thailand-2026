@@ -151,8 +151,8 @@ export const days = [
   {
     date:'June 13', area:'Ban Rak Thai → Doi Inthanon side', hotel:'Nok Chan Mee Na', budget:'1,000–1,800 THB',
     summary:'Hardest transfer day. No activities.',
-    items:[['7:00 AM','Ban Rak Thai → Mae Hong Son by songthaew/local taxi.','300–500 THB'],['Morning/midday','Mae Hong Son → Chiang Mai by shared van/bus.','250–500 THB'],['Afternoon/evening','Chiang Mai → Chom Thong by local bus/songthaew/van.','35–150 THB'],['Evening','Chom Thong → Nok Chan Mee Na by local taxi/songthaew/tuk tuk.','150–400 THB'],['8–9 PM possible','Late check-in, eat, sleep.','250–450 THB food']],
-    transport:'Four-leg budget route.', food:'Transfer food, 7-Eleven/local meal.', risk:'Message Nok Chan Mee Na about late arrival. No activity this day.',
+    items:[['6:00–6:30 AM','Ban Rak Thai → Mae Hong Son Bus Terminal by hotel taxi/local songthaew.','300–500 THB'],['7:00–8:00 AM','Mae Hong Son Bus Terminal → Chiang Mai Arcade Bus Terminal 2 by Prem Pracha van/bus.','320–500 THB'],['1:00–2:30 PM','Arcade → Chang Phueak Bus Terminal by Grab/Bolt/red songthaew.','80–180 THB'],['Before 4:00 PM','Chang Phueak → Chom Thong / Wat Phra That Si Chom Thong by yellow songthaew/local bus.','20–35 THB'],['Evening','Chom Thong → Nok Chan Mee Na by hotel pickup/local taxi/songthaew/tuk tuk.','150–400 THB'],['8–9 PM possible','Late check-in, eat, sleep.','250–450 THB food']],
+    transport:'Five-step budget route using public transport backbone.', food:'Transfer food, 7-Eleven/local meal.', risk:'Message Nok Chan Mee Na about late arrival. Catch earliest Prem Pracha from Mae Hong Son. Must reach Chang Phueak before the yellow songthaew risk window. No activity this day.',
   },
   {
     date:'June 14', area:'Doi Inthanon / Chom Thong', hotel:'Nok Chan Mee Na', budget:'500–900 THB',
@@ -181,7 +181,7 @@ export const days = [
   {
     date:'June 18', area:'Doi side → Mon Jam', hotel:'Mon Jaw Doi at Monjam', budget:'900–1,600 THB',
     summary:'Second hard transfer day. Arrive Mon Jam and relax.',
-    items:[['Morning','Nok Chan Mee Na → Chom Thong by local taxi/songthaew/tuk tuk.','150–400 THB'],['Midday','Chom Thong → Chiang Mai by local bus/songthaew/van.','35–150 THB'],['Afternoon','Chiang Mai → Mon Jam by shared van/songthaew/taxi.','150–300 THB shared / 600–1,000 fixed'],['3–5 PM','Check in Mon Jam, sunset view, dinner, rest.','300–500 THB food']],
+    items:[['Morning','Nok Chan Mee Na → Chom Thong by local taxi/songthaew/tuk tuk.','150–400 THB'],['Midday','Chom Thong / Wat Phra That Si Chom Thong → Chang Phueak Bus Terminal by yellow songthaew/local bus.','20–35 THB'],['Afternoon','Chang Phueak / Chiang Mai → Mae Rim → Mon Jam by songthaew/local taxi.','150–300 THB shared / 600–1,000 fixed'],['3–5 PM','Check in Mon Jam, sunset view, dinner, rest.','300–500 THB food']],
     transport:'Budget-balanced route via Chiang Mai.', food:'Simple meals.', risk:'No activity except transfer/check-in.',
   },
   {
