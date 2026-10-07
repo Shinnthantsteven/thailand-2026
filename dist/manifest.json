@@ -1,10 +1,10 @@
 {
-  "name": "Thailand 2026 Offline Trip Plan",
-  "short_name": "Thailand 2026",
-  "description": "Offline-ready Northern Thailand travel plan — Chiang Mai, Pai, Ban Rak Thai, Doi Inthanon, Mon Jam, Mae Kampong and Bangkok.",
+  "name": "Vacation",
+  "short_name": "Vacation",
+  "description": "Offline-ready vacation plans.",
   "start_url": ".",
   "scope": ".",
-  "id": "thailand-2026-offline",
+  "id": "vacation-app",
   "display": "standalone",
   "display_override": [
     "standalone",

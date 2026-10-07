@@ -116,3 +116,28 @@
     }
   }
 }
+
+/* ---------- Vacation shell: top bar + left drawer ---------- */
+:root { --shell-h: calc(52px + env(safe-area-inset-top, 0px)); }
+.shell-bar {
+  position: sticky; top: 0; z-index: 60; height: var(--shell-h);
+  padding: env(safe-area-inset-top, 0px) 12px 0; display: flex; align-items: center; gap: 12px;
+  background: #022c22; color: #fff; border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.shell-burger {
+  display: flex; flex-direction: column; justify-content: center; gap: 5px;
+  width: 40px; height: 40px; padding: 0 9px; border-radius: 12px; background: rgba(255,255,255,.12);
+}
+.shell-burger { align-items: center; }
+.shell-burger span { display: block; flex: none; width: 22px; height: 3px; border-radius: 2px; background: #fff; }
+.shell-overlay { position: fixed; inset: 0; z-index: 70; background: rgba(0,0,0,.5); }
+.shell-drawer {
+  position: fixed; top: 0; bottom: 0; left: 0; z-index: 80; width: min(82vw, 320px);
+  padding: calc(env(safe-area-inset-top, 0px) + 20px) 16px 20px; background: #064e3b; color: #fff;
+  transform: translateX(-102%); transition: transform .25s ease; box-shadow: 8px 0 30px rgba(0,0,0,.3);
+  visibility: hidden;
+}
+.shell-drawer.is-open { transform: none; visibility: visible; }
+.shell-frame { display: block; width: 100%; height: calc(100svh - var(--shell-h)); border: 0; background: #e7f0e8; }
+/* Thailand header now sits under the shell bar */
+.app-header { top: var(--shell-h) !important; padding-top: 0 !important; }

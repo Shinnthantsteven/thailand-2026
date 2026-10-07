@@ -1,12 +1,10 @@
-/* Thailand 2026 offline cache service worker */
-const CACHE_NAME = 'thailand-2026-offline-v7-transport-fixed';
+/* Vacation offline cache service worker */
+const CACHE_NAME = 'vacation-offline-v8-shell';
 const PRECACHE_URLS = [
   "./",
   "./index.html",
   "./manifest.json",
   "./apple-touch-icon.png",
-  "./assets/index-CF_h_CKU.css",
-  "./assets/index-BLDkRW3W.js",
   "./favicon-16x16.png",
   "./favicon-32x32.png",
   "./favicon.ico",
@@ -68,7 +66,7 @@ self.addEventListener('install', (event) => {
         try {
           await cache.add(new Request(url, { cache: 'reload' }));
         } catch (err) {
-          console.warn('[Thailand 2026 SW] cache skipped:', url, err);
+          console.warn('[Vacation SW] cache skipped:', url, err);
         }
       }
     }).then(() => self.skipWaiting())
